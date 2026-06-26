@@ -163,10 +163,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
-# Fastbootd
-PRODUCT_PACKAGES += \
-    fastbootd
-
 # Graphics
 TARGET_USES_VULKAN = true
 
