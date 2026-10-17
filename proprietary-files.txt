@@ -2841,3 +2841,16 @@ odm/etc/thermal-wvideo-donghai.conf
 odm/etc/thermal-wvideo.conf
 odm/etc/thermal-yuanshen-donghai.conf
 odm/etc/thermalbreakboostconfig.xml
+
+# Touchscreen firmware - nt36532
+odm/firmware/MP_Setting_Criteria_59B1.csv
+odm/firmware/MP_Setting_Criteria_59BC.csv
+odm/firmware/film_model.tflite
+odm/firmware/novatek_nt36532_yupei_fw_boe.bin
+odm/firmware/novatek_nt36532_yupei_fw_csot.bin
+odm/firmware/novatek_nt36532_yupei_mp_boe.bin
+odm/firmware/novatek_nt36532_yupei_mp_csot.bin
+odm/firmware/palm_check.tflite
+odm/firmware/water_check.tflite
+odm/firmware/yupei_nova_boe_thp_config.ini
+odm/firmware/yupei_nova_csot_thp_config.ini
