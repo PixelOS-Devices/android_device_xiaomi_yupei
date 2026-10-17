@@ -193,7 +193,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom
 
 PRODUCT_PACKAGES += \
-    ueventd-odm-yupei.rc \
     ueventd-odm.rc \
     ueventd.qcom.rc
 
