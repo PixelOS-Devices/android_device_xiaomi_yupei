@@ -2854,3 +2854,10 @@ odm/firmware/palm_check.tflite
 odm/firmware/water_check.tflite
 odm/firmware/yupei_nova_boe_thp_config.ini
 odm/firmware/yupei_nova_csot_thp_config.ini
+
+# VPU firmware - yupei
+odm/firmware/vpu30_2v_unsigned.mbn
+odm/firmware/vpu33_4v.mbn
+odm/firmware/vpu33_4v_unsigned.mbn
+odm/firmware/vpu35_4v.mbn
+odm/firmware/vpu35_4v_unsigned.mbn
