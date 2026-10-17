@@ -80,6 +80,13 @@
             <Limit name="measured-frame-rate-1920x1080" range="292-413" />
             <Limit name="measured-frame-rate-3840x2160" range="67-240" />
         </MediaCodec>
+        <MediaCodec name="c2.qti.dv.decoder" type="video/dolby-vision" update="true">
+            <Limit name="measured-frame-rate-352x288" range="625-1900" />
+            <Limit name="measured-frame-rate-720x480" range="370-1550" />
+            <Limit name="measured-frame-rate-1280x720" range="270-2600" />
+            <Limit name="measured-frame-rate-1920x1080" range="260-1200" />
+            <Limit name="measured-frame-rate-3840x2160" range="67-505" />
+        </MediaCodec>
 
         <!-- C2 SW codecs -->
         <MediaCodec name="c2.android.avc.decoder" type="video/avc" update="true">
