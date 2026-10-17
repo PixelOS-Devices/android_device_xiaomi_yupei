@@ -12,7 +12,3 @@ persist.bluetooth.leaudio.notify.idle.during.call=true
 persist.bluetooth.leaudio_offload.disabled=false
 persist.vendor.bluetooth.haltest=true
 ro.bluetooth.leaudio_offload.supported=true
-
-# Radio
-ro.telephony.sim_slots.count=2
-telephony.active_modems.max_count=2

@@ -12,10 +12,5 @@ ro.media.xml_variant.profiles=_tuna_v0
 # QTI
 ro.vendor.qti.va_aosp.support=1
 
-# Radio
-persist.vendor.data.mode=concurrent
-ril.subscription.types=NV,RUIM
-telephony.lteOnCdmaDevice=1
-
 # WFD
 persist.debug.wfd.enable=1
