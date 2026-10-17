@@ -105,7 +105,12 @@ function configure_thp()
 {
 	## Goal is to allow all allocations to use THP whilst minimizing allocaiton delays
 	# Allow all eligibe page faults to use THP
-	echo always > /sys/kernel/mm/transparent_hugepage/enabled
+	ProductName=`getprop ro.product.product.name`
+	if [ "$ProductName" == "haotian" ] || [ "$ProductName" == "dada" ] || [ "$ProductName" == "miro" ] || [ "$ProductName" == "bixi" ] || [ "$ProductName" == "onyx" ] || [ "$ProductName" == "luming" ]; then
+		echo never > /sys/kernel/mm/transparent_hugepage/enabled
+	else
+		echo always > /sys/kernel/mm/transparent_hugepage/enabled
+	fi
 	# Prevent page faults on THP-elgible VMAs from causing reclaim or compaction
 	echo never > /sys/kernel/mm/transparent_hugepage/defrag
 
@@ -127,6 +132,7 @@ function configure_thp()
 
 function configure_min_free_kbytes()
 {
+	ProductName=`getprop ro.product.product.name`
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
 	let RamSizeGB="( $MemTotal / 1048576 ) + 1"
@@ -148,6 +154,11 @@ function configure_min_free_kbytes()
 		MinFreeKbytes=4096
 	fi
 
+	if [ "$ProductName" == "bixi" ] || [ "$ProductName" == "onyx" ] || [ "$ProductName" == "luming" ]; then
+		WatermarkScale=43
+		echo $WatermarkScale > /proc/sys/vm/watermark_scale_factor
+	fi
+
 	# We store min_free_kbytes into a vendor property so that the PASR
 	# HAL can read and set the value for it.
 	echo $MinFreeKbytes > /proc/sys/vm/min_free_kbytes
@@ -165,7 +176,13 @@ function configure_memory_parameters() {
 	# Call configure_min_free_kbytes after
 	configure_min_free_kbytes
 
-	echo 100 > /proc/sys/vm/swappiness
+        # Extm
+        ProductName=`getprop ro.product.product.name`
+	if [ "$ProductName" == "bixi" ] || [ "$ProductName" == "onyx" ] || [ "$ProductName" == "luming" ]; then
+		echo 150 > /proc/sys/vm/swappiness
+	else
+		echo 100 > /proc/sys/vm/swappiness
+	fi
 
 	# Disable periodic kcompactd wakeups. We do not use THP, so having many
 	# huge pages is not as necessary.
@@ -177,6 +194,22 @@ function configure_memory_parameters() {
 	fi
 	if [ -f /sys/class/kgsl/kgsl/max_reclaim_limit ]; then
 		echo 51200 > /sys/class/kgsl/kgsl/max_reclaim_limit
+	fi
+        
+	extra_free_kbytes_backup_enable=`getprop persist.vendor.spc.mi_extra_free_enable`
+	MIN_PERCPU_PAGELIST_HIGH_FRACTION=8
+
+	if [ "true" = ${extra_free_kbytes_backup_enable} ]; then
+		echo 10 > /proc/sys/vm/watermark_scale_factor
+		echo `cat /proc/sys/vm/min_free_kbytes` " 10 -1" > /sys/kernel/mi_wmark/extra_free_kbytes
+		cat /proc/sys/vm/lowmem_reserve_ratio > /proc/sys/vm/lowmem_reserve_ratio
+
+		percpu_pagelist_high_fraction=`cat /proc/sys/vm/percpu_pagelist_high_fraction`
+		new_percpu_pagelist_high_fraction=${percpu_pagelist_high_fraction}
+		[ ${percpu_pagelist_high_fraction} -lt ${MIN_PERCPU_PAGELIST_HIGH_FRACTION} ] && new_percpu_pagelist_high_fraction=${MIN_PERCPU_PAGELIST_HIGH_FRACTION}
+		let new_percpu_pagelist_high_fraction++
+		echo ${new_percpu_pagelist_high_fraction} > /proc/sys/vm/percpu_pagelist_high_fraction
+		echo ${percpu_pagelist_high_fraction} > /proc/sys/vm/percpu_pagelist_high_fraction
 	fi
 }
 configure_memory_parameters

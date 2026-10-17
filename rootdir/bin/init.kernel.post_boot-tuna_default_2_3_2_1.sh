@@ -126,6 +126,12 @@ if [ -d /proc/sys/walt ]; then
 	echo 1075200 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 	echo 40 > /proc/sys/walt/input_boost/input_boost_ms
 
+    # configure power_key boost settings
+	echo 1785600 0 2611200 0 0 2611200 0 2515200 > /proc/sys/walt/input_boost/powerkey_input_boost_freq
+        echo 400 > /proc/sys/walt/input_boost/powerkey_input_boost_ms
+
+	echo 3000 > /sys/module/perf_helper/sched_assi/sched_long_runnable
+
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy2/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy5/scaling_governor
@@ -154,12 +160,6 @@ if [ -d /proc/sys/walt ]; then
 	echo 1190400 > /sys/devices/system/cpu/cpufreq/policy2/walt/hispeed_freq
 	echo 1190400 > /sys/devices/system/cpu/cpufreq/policy5/walt/hispeed_freq
 	echo 1478400 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
-
-	#zone base target load
-	echo 1075200 80 1401600 80 1632000 80 2016000 80 > /sys/devices/system/cpu/cpufreq/policy0/walt/zone_max_util_pct
-	echo 1190400 80 1632000 80 2208000 80 2515200 80 3014400 80 > /sys/devices/system/cpu/cpufreq/policy2/walt/zone_max_util_pct
-	echo 1190400 80 1632000 80 2208000 80 2515200 80 2803200 80 > /sys/devices/system/cpu/cpufreq/policy5/walt/zone_max_util_pct
-	echo 1228800 80 1670400 80 2169600 80 2515200 80 2956800 80 3206400 85 > /sys/devices/system/cpu/cpufreq/policy7/walt/zone_max_util_pct
 
 else
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
