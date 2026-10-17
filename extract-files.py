@@ -232,6 +232,7 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libMiEmojiEffect.so',
         'odm/lib64/libMiVideoFilter.so',
         'odm/lib64/libTrueSight.so',
+        'odm/lib64/libarcsoft_beautyshot.so',
         'odm/lib64/libwa_widelens_undistort.so',
         'vendor/lib64/libMiPhotoFilter.so'
     ): blob_fixup()
