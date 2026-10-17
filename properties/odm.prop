@@ -1,122 +1,153 @@
-# Order
-ro.product.property_source_order=odm,vendor,product,system_ext,system
-
 # Audio
-persist.vendor.audio.fpsop.game.effect.speaker=false
+audio.spatializer.pose_predictor_type=2
+audio.spatializer.prediction_duration_ms=50
+audio.timecheck.timeout_duration_ms=6000
 persist.vendor.audio.fpsop.game.effect.switch=true
-persist.vendor.audio.fpsop.game.effect=true
-persist.vendor.audio.game.effect.version=2
 persist.vendor.audio.induce_crash=false
 persist.vendor.audio.induce_crash_generic=false
-persist.vendor.audio.mi.perception=9
+persist.vendor.audio.mi.perception=89
 persist.vendor.audio.spf_restart=true
-ro.vendor.audio.algorithm.support=Fluence
-ro.vendor.audio.aw.monitor=true
-ro.vendor.audio.camera.loopback.support=true
-ro.vendor.audio.elus.gyrp.disturbance_avoidance=true
-ro.vendor.audio.elus.proximity.cqrcodesupport=true
-ro.vendor.audio.elus.proximity.fademodule=true
-ro.vendor.audio.elus.proximity.speakermode=true
-ro.vendor.audio.lea.karaoke=true
+persist.vendor.audio.vpnr.config=1
+ro.audio.spatializer_enabled=false
+ro.vendor.audio.adsp.spatial=true
+ro.vendor.audio.algorithm.support=Mi
+ro.vendor.audio.bt.adapter=15
+ro.vendor.audio.debug.pa.num=4
+ro.vendor.audio.fluence.rx.supported.devices=15
+ro.vendor.audio.forte.focus.view=true
+ro.vendor.audio.game.rx.restore=true
+ro.vendor.audio.lea.karaoke=false
 ro.vendor.audio.lowpower.pa.para.support=false
-ro.vendor.audio.meeting.mode.type=2
-ro.vendor.audio.meeting.mode=true
+ro.vendor.audio.meeting.mode.type=1
+ro.vendor.audio.meeting.mode=1
+ro.vendor.audio.mi.meeting.support=true
+ro.vendor.audio.onetrack.audio_track_message.level=1
+ro.vendor.audio.onetrack.process_state_of_app.level=1
+ro.vendor.audio.onetrack.voicetrigger_first_event.level=5
+ro.vendor.audio.onetrack.waveform_info.level=1
 ro.vendor.audio.onetrack.xiaoai.firstevent.support=false
 ro.vendor.audio.product.sleepmonitor.config=true
+ro.vendor.audio.remote.multi.supported.devices=15
+ro.vendor.audio.remote.single.supported.devices=3
+ro.vendor.audio.remote.surround.supported.devices=15
+ro.vendor.audio.remote.vpnr.supported.devices=3
+ro.vendor.audio.rx.css=true
 ro.vendor.audio.sixth.monitor=true
-
+ro.vendor.audio.sound_leak_protection_device=3
+ro.vendor.audio.sound_leak_protection_mute_extend_ms=2000
+ro.vendor.audio.sound_leak_protection_mute_ms=1000
+ro.vendor.audio.triplemic.support=true
+ro.vendor.audio.voip.rotation.support=true
+ro.vendor.audio.volume_super_index_add=10
+ro.vendor.audio.vpnr.auto.enroll=true
+ro.vendor.audio.vpnr.support=true
 vendor.audio.cpu.sched.cpus=8
-vendor.audio.cpu.sched.cpuset.af=255
-vendor.audio.cpu.sched.cpuset.at=255
-vendor.audio.cpu.sched.cpuset.hb=255
-vendor.audio.cpu.sched.cpuset.he=255
 vendor.audio.cpu.sched.cpuset.hso=255
-vendor.audio.cpu.sched.douyin=31
-vendor.audio.cpu.sched.douyin.cpus=8
-vendor.audio.cpu.sched.douyin.cpuset.af=63
-vendor.audio.cpu.sched.douyin.cpuset.at=63
-vendor.audio.cpu.sched.douyin.cpuset.hb=63
-vendor.audio.cpu.sched.douyin.cpuset.he=63
 vendor.audio.cpu.sched.douyin.cpuset.hso=63
-vendor.audio.cpu.sched.onlyfast=false
+vendor.audio.cpu.sched.meeting.powersave=63
 vendor.audio.cpu.sched=31
 vendor.audio.only.douyin.powersave.support=1
 vendor.audio.rt.mode.onlyfast=false
 vendor.audio.rt.mode=55
 vendor.audio.support.16bit.record=true
 
-# Battery secret
+# Battery
 persist.vendor.region.charger=default
+persist.vendor.tracking.dfs=true
+persist.vendor.vcb.enable=false
 
 # Bluetooth
 ro.bluetooth.finder.supported=true
 
 # Camera
-ro.vendor.dynamiccamera.ability_level=2
-ro.camerax.extensions.enabled=false
-ro.camera.disableJpegR=true
 ro.camera.disableHeicUltraHDR=true
-
-# CIT
-persist.vendor.debug.collision.dfx=true
-persist.vendor.sensor.mischeck=true
-ro.vendor.sensor.maxbrightness.sec=10926
-ro.vendor.sensor.maxbrightness=10926
+ro.camera.disableJpegR=true
+ro.camerax.extensions.enabled=false
+ro.vendor.dynamiccamera.ability_level=2
 
 # Crypto
 vendor.wv.oemcrypto.debug.enable_prov40=true
 
-# DisplayFeature
+# Display
+debug.sf.ignore_hwc_physical_display_orientation=true
+debug.sf.treat_170m_as_sRGB=1
 persist.vendor.dc_backlight.enable=false
+persist.vendor.dc_backlight.threshold=0
+persist.vendor.disable_idle_fps.threshold=0
+persist.vendor.display.uiservice_debug.enable=true
+ro.surface_flinger.enable_frame_rate_override=false
+ro.surface_flinger.primary_display_orientation=ORIENTATION_270
+ro.vendor.all_modes.colorpick_adjust=true
+ro.vendor.bcbc.enable=false
+ro.vendor.colorpick_adjust=true
+ro.vendor.dfps.enable=false
 ro.vendor.display.adaptive_hdr.enable=true
 ro.vendor.display.adaptive_hdr2.enable=1
 ro.vendor.display.bl_lut_calib.enable=true
 ro.vendor.display.darkmode_dither.enable=true
+ro.vendor.display.default_fps=60
 ro.vendor.display.dobly_dpu.enable=true
+ro.vendor.display.dolbyvision.support=true
+ro.vendor.display.framework_thermal_dimming=true
+ro.vendor.display.idle_default_fps.support=true
+ro.vendor.display.idle_default_fps=50
 ro.vendor.display.kernel_recoder_enable=false
 ro.vendor.display.mi_calib.enable=true
+ro.vendor.display.mode_change_optimize.enable=true
 ro.vendor.display.nature_mode.enable=true
+ro.vendor.display.set_fps_stat_timer_ms=250
 ro.vendor.display.standard_d75_enable=true
-ro.vendor.display.update_dbi_by_temperature=true
+ro.vendor.display.touch.idle.enable=true
+ro.vendor.display.type=lcd
+ro.vendor.display.uiservice.enable=true
+ro.vendor.display.video_or_camera_fps.support=true
+ro.vendor.display.vivid_calibration.enable=1
+ro.vendor.fps.switch.default=true
+ro.vendor.fps.switch.thermal=true
+ro.vendor.gcp.enable=1
+ro.vendor.gpp.frc.support=true
+ro.vendor.hbm_backlight.enable=true
 ro.vendor.histogram.enable=true
-ro.vendor.localhbm.enable=true
+ro.vendor.localhbm.enable=false
+ro.vendor.soft_backlight.enable=true
 ro.vendor.sre.enable=true
-
-# Graphics
-debug.sf.set_idle_timer_ms=1100
-ro.surface_flinger.enable_frame_rate_override=false
+ro.vendor.standard.video.enable=true
+ro.vendor.thermal.dimming.enable=true
+ro.vendor.video_box.version=2
+ro.vendor.whitepoint_calibration_enable=false
+ro.vendor.xiaomi.bl.poll=true
+ro.vendor.xiaomi.sr.support=true
 vendor.display.boost_cpu_layer_number_threshold=12
 vendor.display.disable_3d_adaptive_tm=1
 vendor.display.disable_cwb_idle_fallback=1
 vendor.display.disable_idle_scaling_layers=1
 vendor.display.disable_llcc_during_aod=1
+vendor.display.disable_metadata_dynamic_fps=1
 vendor.display.disable_sdr_dimming=0
 vendor.display.disable_stc_dimming=1
-vendor.display.enable_antiaging=0
-vendor.display.enable_cwb_notify_sensor=1
 vendor.display.enable_demura=0
 vendor.display.enable_hdr10_gpu_target=0
+vendor.display.enable_hist_intr=1
 vendor.display.force_tonemapping=1
 vendor.display.idle_time=0
 vendor.display.support_function_timer=1
-vendor.display.support_video_mode_30hz_aod=0
 
-# QC Value Addons
+# Logging
+persist.vendor.debug.collision.dfx=true
+
+# QTI
 ro.vendor.qti.va_odm.support=1
-
-# RIL
-ro.telephony.default_network=33,33
-persist.vendor.radio.dynamic_sar=1
-
-# Sensor
-persist.vendor.sensors.debug.hal_trigger_crash=true
 
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
-# Thermal
-persist.vendor.tracking.dfs=true
+# Sensors
+persist.vendor.sensor.mischeck=true
+persist.vendor.sensor.use_xiaomi_hall=true
+persist.vendor.sensors.amd_for_powercontrol=true
+persist.vendor.sensors.debug.hal_trigger_ssr=true
 
-# Touchfeature
-persist.vendor.touchfeature.gameturbotool.version=v4
+# Touch
+persist.vendor.touchfeature.gameturbotool.version=v3.5
 ro.vendor.touch.touchscheduler.enable=true
+ro.vendor.touchfeature.type=35
