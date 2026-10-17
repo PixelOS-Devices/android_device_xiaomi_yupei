@@ -2563,6 +2563,44 @@ vendor/lib64/libxiaomi_qmi.so
 vendor/lib64/qcrilIntermodulemsgs.so
 vendor/lib64/qtiril-utils.so
 
+# Camera - yupei
+odm/etc/camera/aivsModel_558B456C
+odm/etc/camera/aivsModel_F01EC698
+odm/etc/camera/alCFR_Segmodel.bin
+odm/etc/camera/cameraopt_reclaim.json
+odm/etc/camera/facesr.model
+odm/etc/camera/jiiganLdcFront/ldc_cap_cache
+odm/etc/camera/jiiganLdcFront/ldc_cap_model
+odm/etc/camera/jiiganLdcFront/ldc_cap_policy
+odm/etc/camera/libarcsoft_high_dynamic_range.bin
+odm/etc/camera/libarcsoft_mf_superresolution.bin
+odm/etc/camera/previewbokeh_config.bin
+odm/etc/camera/snsc_bokeh_motiontuning.xml
+odm/etc/camera/snsc_enhance_motiontuning.xml
+odm/etc/camera/snsc_motiontuning.xml
+odm/etc/camera/snsc_noface_motiontuning.xml
+odm/etc/camera/style/arcbeauty_param_config.json
+odm/etc/camera/style/style_xiaomi_p2p3.hdcg
+odm/etc/camera/xiaomi/watermark/Roboto-Bold.ttf
+odm/etc/camera/xiaomi/watermark/Roboto-Medium.ttf
+odm/lib64/camera/com.qti.actuator.yupei_ofilm_ov13b10_cn3927v_wide_actuator.so
+odm/lib64/camera/com.qti.eeprom.yupei_aac_ov08d10_gt24p64e_front_eeprom.so
+odm/lib64/camera/com.qti.eeprom.yupei_ofilm_ov13b10_bl24sa64_wide_eeprom.so
+odm/lib64/camera/com.qti.sensor.yupei_aac_ov08d10_front.so
+odm/lib64/camera/com.qti.sensor.yupei_ofilm_ov13b10_wide.so
+odm/lib64/camera/com.qti.sensormodule.yupei_aac_ov08d10_front.bin
+odm/lib64/camera/com.qti.sensormodule.yupei_ofilm_ov13b10_wide.bin
+odm/lib64/camera/com.qti.tuned.yupei_aac_ov08d10_front.bin
+odm/lib64/camera/com.qti.tuned.yupei_ofilm_ov13b10_wide.bin
+odm/lib64/camera/components/com.mi.node.facecenter.so
+odm/lib64/camera/components/com.mi.node.gpu3rd.so
+odm/lib64/camera/components/com.mi.node.skinbeautifier.so
+odm/lib64/camera/plugins/com.xiaomi.plugin.arcskinbeautifier.so
+odm/lib64/camera/plugins/com.xiaomi.plugin.arcskinbeautifierpreview.so
+odm/lib64/camera/plugins/com.xiaomi.plugin.arcsoftsll.so
+odm/lib64/camera/plugins/com.xiaomi.plugin.hdr.so
+odm/lib64/camera/plugins/com.xiaomi.plugin.sr.so
+
 # Touchfeature (Configs) - yupei
 odm/etc/touch/Pencil_Posture.xml
 odm/etc/touch/stylus_game_config.json
