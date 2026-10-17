@@ -69,7 +69,6 @@ DEVICE_MANIFEST_FILE := \
 # Kernel
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_RAMDISK_USE_LZ4 := true
-TARGET_NEEDS_DTBOIMAGE := true
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -81,21 +80,18 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
-BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
-
-TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8735
-TARGET_KERNEL_CONFIG := \
-    gki_defconfig \
-    vendor/sun_perf.config \
-    vendor/yupei_perf.config \
+KERNEL_PATH := device/xiaomi/yupei-kernel
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_KERNEL_CONFIG := gki_defconfig
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
+TARGET_KERNEL_VERSION := 6.6
+TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/images/kernel
+BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/images/dtbs
+BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/images/dtbo.img
 
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
-    sysctl.kernel.firmware_config.force_sysfs_fallback=1 \
-    swinfo.fingerprint=$(LINEAGE_VERSION) \
-    mtdoops.fingerprint=$(LINEAGE_VERSION) \
-    bootmonitor.fingerprint=$(LINEAGE_VERSION)
+    sysctl.kernel.firmware_config.force_sysfs_fallback=1
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -107,56 +103,9 @@ BOARD_BOOTCONFIG := \
     androidboot.vendor.qspa=true
 
 # Kernel modules
-first_stage_modules := $(strip $(shell sed 's/#.*$$//;/^$$/d' $(TARGET_KERNEL_SOURCE)/modules.list.msm.sun $(DEVICE_PATH)/modules/modules.list.first_stage))
-second_stage_modules := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.list.second_stage))
-vendor_dlkm_modules := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.list.vendor_dlkm))
-
-bzl-modules = $(shell sed -n '$(foreach b,$(1),/^$(b)/,/^]/p;)' $(TARGET_KERNEL_SOURCE)/modules.bzl | sed -n 's,^[[:space:]]*".*/\([^"]*\)".*,\1,p')
-gki_modules := $(strip $(call bzl-modules,_COMMON_GKI _ARM64_GKI))
-kunit_modules := $(strip $(call bzl-modules,_KUNIT_FRAMEWORK _KUNIT_COMMON _KUNIT_CLK))
-
-BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(gki_modules)
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(TARGET_KERNEL_SOURCE)/modules.vendor_blocklist.msm.sun
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(second_stage_modules) $(vendor_dlkm_modules)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(first_stage_modules)
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(first_stage_modules) $(second_stage_modules)
-
-BOOT_KERNEL_MODULES := $(first_stage_modules) $(second_stage_modules)
-SYSTEM_KERNEL_MODULES := $(gki_modules) $(kunit_modules)
-
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm8735-modules
-TARGET_KERNEL_EXT_MODULES := \
-    qcom/opensource/mmrm-driver \
-    qcom/opensource/mm-drivers/hw_fence \
-    qcom/opensource/mm-drivers/msm_ext_display \
-    qcom/opensource/mm-drivers/sync_fence \
-    qcom/opensource/audio-kernel \
-    qcom/opensource/securemsm-kernel \
-    qcom/opensource/synx-kernel \
-    qcom/opensource/camera-kernel \
-    qcom/opensource/data-kernel/drivers/smem-mailbox \
-    qcom/opensource/datarmnet-ext/mem \
-    qcom/opensource/dataipa/drivers/platform/msm \
-    qcom/opensource/datarmnet/core \
-    qcom/opensource/datarmnet-ext/aps \
-    qcom/opensource/datarmnet-ext/offload \
-    qcom/opensource/datarmnet-ext/perf \
-    qcom/opensource/datarmnet-ext/perf_tether \
-    qcom/opensource/datarmnet-ext/sch \
-    qcom/opensource/datarmnet-ext/shs \
-    qcom/opensource/datarmnet-ext/wlan \
-    qcom/opensource/display-drivers/msm \
-    qcom/opensource/dsp-kernel \
-    qcom/opensource/eva-kernel \
-    qcom/opensource/graphics-kernel \
-    qcom/opensource/spu-kernel \
-    qcom/opensource/touch-drivers \
-    qcom/opensource/video-driver \
-    qcom/opensource/wlan/platform \
-    qcom/opensource/wlan/qcacld-3.0 \
-    qcom/opensource/bt-kernel \
-    nxp/opensource/driver
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/modules/vendor_boot/*.ko)
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/modules/vendor_dlkm/*.ko)
+BOARD_SYSTEM_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/modules/system_dlkm/*.ko)
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
