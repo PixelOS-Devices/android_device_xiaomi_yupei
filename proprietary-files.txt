@@ -2566,3 +2566,7 @@ vendor/lib64/qtiril-utils.so
 # Shared libraries
 vendor/lib64/libxml.so
 vendor/lib64/libshsc.so
+
+# Audio amplifier
+odm/etc/init/init.foursemi.rc
+odm/firmware/fs19xx.fsm
