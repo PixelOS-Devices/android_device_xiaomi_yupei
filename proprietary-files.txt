@@ -2699,3 +2699,29 @@ odm/etc/disp0/mdss_dsi_p82_42_02_0a_dualdsi_dsc_vid/mi_gc_3.txt
 
 # Hall sensor
 odm/etc/init/init.xiaomi_hall.rc
+
+# Sensors (configs) - yupei
+odm/etc/sensors/config/lsm6dso_0.json
+odm/etc/sensors/config/qmc6308_0.json
+odm/etc/sensors/config/sm8735_lsm6dso_0.json
+odm/etc/sensors/config/sm8735_qmi8658_0.json
+odm/etc/sensors/config/sm8735_stk3bcx_0.json
+odm/etc/sensors/config/sm8735_sx937x_0.json
+odm/etc/sensors/config/sns_amd_sw_disabled.json
+odm/etc/sensors/config/sns_amd_sw_enabled.json
+odm/etc/sensors/config/sns_ccd_v1_0_ttw.json
+odm/etc/sensors/config/sns_ccd_v2_0_walk.json
+odm/etc/sensors/config/sns_ccd_v3_0_walk.json
+odm/etc/sensors/config/sns_ccd_v4_0_te_cd_regs.json
+odm/etc/sensors/config/sns_ccd_v5.json
+odm/etc/sensors/config/sns_ccd_v5_0_te_cd_regs.json
+odm/etc/sensors/config/sns_facing.json
+odm/etc/sensors/config/sns_fmv_legacy.json
+odm/etc/sensors/config/sns_geomag_rv.json
+odm/etc/sensors/config/sns_mag_cal_legacy.json
+odm/etc/sensors/config/sns_oem_hall.json
+odm/etc/sensors/config/sns_tilt_sw_disabled.json
+odm/etc/sensors/config/sns_tilt_sw_enabled.json
+odm/etc/sensors/config/stk3bcx_0.json
+odm/etc/sensors/config/sx937x_0.json
+odm/etc/sensors/config/sx937x_reg_0.json
