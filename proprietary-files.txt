@@ -2696,3 +2696,6 @@ odm/etc/disp0/mdss_dsi_p82_42_02_0a_dualdsi_dsc_vid/mi_gc_0.txt
 odm/etc/disp0/mdss_dsi_p82_42_02_0a_dualdsi_dsc_vid/mi_gc_1.txt
 odm/etc/disp0/mdss_dsi_p82_42_02_0a_dualdsi_dsc_vid/mi_gc_2.txt
 odm/etc/disp0/mdss_dsi_p82_42_02_0a_dualdsi_dsc_vid/mi_gc_3.txt
+
+# Hall sensor
+odm/etc/init/init.xiaomi_hall.rc
