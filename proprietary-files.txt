@@ -2570,3 +2570,9 @@ vendor/lib64/libshsc.so
 # Audio amplifier
 odm/etc/init/init.foursemi.rc
 odm/firmware/fs19xx.fsm
+
+# Display (Configs) - p82
+odm/etc/display/qdcm_calib_data_xiaomi_p82_35_02_0b_vid_mode_dualdsi_dsc_panel.json
+odm/etc/display/qdcm_calib_data_xiaomi_p82_42_02_0a_vid_mode_dualdsi_dsc_panel.json
+odm/etc/mdss_dsi_p82_35_02_0b_dualdsi_dsc_vid_mi.xml
+odm/etc/mdss_dsi_p82_42_02_0a_dualdsi_dsc_vid_mi.xml
