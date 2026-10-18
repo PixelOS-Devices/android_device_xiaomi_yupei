@@ -4,6 +4,11 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <!-- Take the country code from nearby access points, since the
+         tablet has no modem to learn it from. Without one the driver
+         stays in world mode, which only scans 5GHz passively. -->
+    <bool name="config_wifiUpdateCountryCodeFromScanResultGeneric">true</bool>
+
     <!-- boolean indicating whether the WiFi chipset has 5GHz band support.
          Note: This config is replacing the config_wifi_dual_band_support
          since more bands may now be supported (such as 6GHz), the naming dual_band
