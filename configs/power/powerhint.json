@@ -393,18 +393,6 @@
         },
         {
             "PowerHint": "INTERACTION",
-            "Node": "procSysWaltSchedBoost",
-            "Value": "2",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "INTERACTION",
-            "Node": "sysDevicesSystemCpuCpu0CoreCtlMinCpus",
-            "Value": "3",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "INTERACTION",
             "Node": "procSysWaltSchedBusyHysteresisEnableCpus",
             "Value": "252",
             "Duration": 0
@@ -413,18 +401,6 @@
             "PowerHint": "INTERACTION",
             "Node": "procSysWaltSchedBusyHystNs",
             "Value": "39",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "INTERACTION",
-            "Node": "sysDevicesSystemCpuCpu0CoreCtlEnable",
-            "Value": "0",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "INTERACTION",
-            "Node": "sysDevicesSystemCpuCpu5CoreCtlEnable",
-            "Value": "0",
             "Duration": 0
         },
         {
