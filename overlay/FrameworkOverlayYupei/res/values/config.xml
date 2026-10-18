@@ -80,8 +80,8 @@
     <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.2627451</item>
     <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.0196078</item>
 
-    <!-- The panel runs 30 to 144 Hz and defaults to 60 Hz. -->
-    <integer name="config_defaultRefreshRate">60</integer>
+    <!-- The panel runs 30 to 144 Hz. -->
+    <integer name="config_defaultRefreshRate">144</integer>
     <integer name="config_defaultPeakRefreshRate">144</integer>
 
     <!-- LCD panel, so no always on display. -->
