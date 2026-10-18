@@ -185,7 +185,6 @@ ro.vendor.qspm.enable=true
 persist.vendor.qcomsysd.enabled=1
 
 # Sensors
-ro.vendor.sensors.xiaomi.double_tap=true
 ro.vendor.sensors.xiaomi.single_tap=true
 
 # Shutdown

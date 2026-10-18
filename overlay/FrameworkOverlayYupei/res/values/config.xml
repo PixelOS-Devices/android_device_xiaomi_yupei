@@ -92,4 +92,7 @@
 
     <!-- Shut down above 58 degrees C battery temperature. -->
     <integer name="config_shutdownBatteryTemperature">580</integer>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 </resources>
