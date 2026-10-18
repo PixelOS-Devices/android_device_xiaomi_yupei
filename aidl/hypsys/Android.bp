@@ -10,7 +10,6 @@ cc_binary {
     relative_install_path: "hw",
     shared_libs: [
         "libbinder_ndk",
-        "libbinder_ndk",
         "xiaomi.system.hypsys.common-V1-ndk",
     ],
     vintf_fragments: ["xiaomi.system.hypsys.common-service-dummy.xml"],
