@@ -95,4 +95,7 @@
 
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
+
+    <!-- Sleep when the cover is closed and wake when it is opened. -->
+    <bool name="config_lidControlsSleep">true</bool>
 </resources>
