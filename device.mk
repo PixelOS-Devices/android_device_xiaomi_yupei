@@ -289,6 +289,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.qspa-service \
     qspa_vendor.rc
 
+# Recovery
+$(call soong_config_set_bool,recovery,target_recovery_uses_qti_drm,true)
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
