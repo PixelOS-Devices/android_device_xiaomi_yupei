@@ -114,9 +114,9 @@ if [ -d /proc/sys/walt ]; then
 	# configure maximum frequency of silver cluster when load is not detected and ensure that
 	# other clusters' fmax remains uncapped by setting the frequency to S32_MAX
 
-	echo 0 1804800 6 1804800 7 1804800 8 1804800> /proc/sys/walt/cluster0/smart_freq/legacy_freq_levels
-	echo 0 2707200 6 2707200 7 2707200 8 2707200> /proc/sys/walt/cluster1/smart_freq/legacy_freq_levels
-	echo 0 2707200 6 2707200 7 2707200 8 2707200> /proc/sys/walt/cluster2/smart_freq/legacy_freq_levels
+	echo 0 2016000 6 2016000 7 2016000 8 2016000> /proc/sys/walt/cluster0/smart_freq/legacy_freq_levels
+	echo 0 3014400 6 3014400 7 3014400 8 3014400> /proc/sys/walt/cluster1/smart_freq/legacy_freq_levels
+	echo 0 2803200 6 2803200 7 2803200 8 2803200> /proc/sys/walt/cluster2/smart_freq/legacy_freq_levels
 	echo 0 2956800 6 2956800 7 2956800 8 2956800> /proc/sys/walt/cluster3/smart_freq/legacy_freq_levels
 
 	# Turn off scheduler boost at the end
