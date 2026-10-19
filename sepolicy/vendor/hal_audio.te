@@ -7,6 +7,9 @@ unix_socket_connect(hal_audio_default, property, hal_sensors_default)
 get_prop(hal_audio_default, vendor_audio_cloud_ctrl_mi_prop)
 
 r_dir_file(hal_audio_default, vendor_persist_audio_file)
+r_dir_file(hal_audio_default, vendor_sysfs_xm_power)
+
+dontaudit hal_audio_default default_prop:file read;
 
 allow hal_audio_default audio_socket:sock_file rw_file_perms;
 allow hal_audio_default hal_mediaeventgatherservice_service:fd *;
