@@ -120,6 +120,9 @@ blob_fixups: blob_fixups_user_type = {
             'libtinyxml2-v34.so'
     ),
 
+    'odm/etc/audio/sku_tuna/resourcemanager_tuna_mtp.xml': blob_fixup()
+        .regex_replace('logging_level" value ="0xF"', 'logging_level" value ="0x3"'),
+
     (
         'odm/etc/camera/enhance_motiontuning.xml',
         'odm/etc/camera/motiontuning.xml',
