@@ -120,8 +120,9 @@ on post-fs-data
     # thermal config path
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
-    chmod 0666 /sys/class/thermal/thermal_message/boost
-    restorecon /sys/class/thermal/thermal_message/boost
+    write /data/vendor/thermal/thermal-global-mode 19
+    chmod 0664 /data/vendor/thermal/thermal-global-mode
+    chown root system /data/vendor/thermal/thermal-global-mode
 
     # add torch node for cit && mmi
     chown system system /sys/class/leds/led:torch_0/brightness
@@ -182,13 +183,6 @@ on property:persist.vendor.ssr.restart_level=ALL_DISABLE
 on property:sys.boot_completed=1
     write /dev/kmsg "start qrtr-lookup after Boot completed "
     start qrtr-lookup
-
-    # Set thermal mode to mgame
-    write /sys/devices/virtual/thermal/thermal_message/sconfig 19
-
-    # for online boot cpu
-    wait /sys/class/thermal/thermal_message/boot_complete
-    write /sys/class/thermal/thermal_message/boot_complete 2
 
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
