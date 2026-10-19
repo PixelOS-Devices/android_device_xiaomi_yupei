@@ -370,6 +370,48 @@
             ],
             "DefaultIndex": 0,
             "ResetOnInit": true
+        },
+        {
+            "Name": "OTHER",
+            "Paths": [
+                "<AdpfConfig>:OTHER"
+            ],
+            "Values": [
+                "ADPF_DEFAULT"
+            ],
+            "Type": "Event"
+        },
+        {
+            "Name": "SURFACEFLINGER",
+            "Paths": [
+                "<AdpfConfig>:SURFACEFLINGER"
+            ],
+            "Values": [
+                "ADPF_DEFAULT",
+                "ADPF_SF"
+            ],
+            "Type": "Event"
+        },
+        {
+            "Name": "GAME",
+            "Paths": [
+                "<AdpfConfig>:GAME"
+            ],
+            "Values": [
+                "ADPF_DEFAULT",
+                "ADPF_GAME"
+            ],
+            "Type": "Event"
+        },
+        {
+            "Name": "HWUI",
+            "Paths": [
+                "<AdpfConfig>:HWUI"
+            ],
+            "Values": [
+                "ADPF_DEFAULT"
+            ],
+            "Type": "Event"
         }
     ],
     "Actions": [
@@ -405,8 +447,38 @@
         },
         {
             "PowerHint": "INTERACTION",
-            "Node": "sysDevicesSystemCpuBusDcvsLlcc240b7400QcomBwmonLlccMaxFreq",
-            "Value": "933000",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveHighFreq",
+            "Value": "1632000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveHighFreq",
+            "Value": "1728000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveLowFreq",
+            "Value": "1286400",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLowFreq",
+            "Value": "1516800",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveLevel1",
+            "Value": "1056000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLevel1",
+            "Value": "1190400",
             "Duration": 0
         },
         {
@@ -822,6 +894,155 @@
             "Node": "sysKernelMsmPerformanceParametersCpuMinFreq",
             "Value": "0:1632000 1:1632000 2:1286400 3:1286400 4:1286400 5:2208000 6:2208000 7:1670400",
             "Duration": 1000
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "procSysWaltSchedBoost",
+            "Value": "1",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveHighFreq",
+            "Value": "1632000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveHighFreq",
+            "Value": "1632000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveHighFreq",
+            "Value": "1728000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveLowFreq",
+            "Value": "1401600",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveLowFreq",
+            "Value": "1286400",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLowFreq",
+            "Value": "1516800",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveLevel1",
+            "Value": "1190400",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveLevel1",
+            "Value": "1056000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLevel1",
+            "Value": "1190400",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "SUSTAINED_PERFORMANCE",
+            "Node": "sysKernelMsmPerformanceParametersCpuMaxFreq",
+            "Value": "0:2016000 1:2016000 2:3014400 3:3014400 4:3014400 5:2803200 6:2803200",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "GAME",
+            "Value": "ADPF_GAME",
+            "Duration": 0
+        }
+    ],
+    "AdpfConfig": [
+        {
+            "Name": "ADPF_DEFAULT",
+            "PID_On": true,
+            "PID_Po": 2.0,
+            "PID_Pu": 0.6,
+            "PID_I": 0.001,
+            "PID_I_Init": 200,
+            "PID_I_High": 512,
+            "PID_I_Low": -30,
+            "PID_Do": 500.0,
+            "PID_Du": 0.0,
+            "SamplingWindow_P": 1,
+            "SamplingWindow_I": 0,
+            "SamplingWindow_D": 1,
+            "UclampMin_On": true,
+            "UclampMin_Init": 100,
+            "UclampMin_LoadUp": 384,
+            "UclampMin_LoadReset": 384,
+            "UclampMin_High": 512,
+            "UclampMin_Low": 0,
+            "ReportingRateLimitNs": 16666666,
+            "TargetTimeFactor": 1.0,
+            "StaleTimeFactor": 10.0,
+            "GpuBoost": false
+        },
+        {
+            "Name": "ADPF_SF",
+            "PID_On": false,
+            "PID_Po": 0.0,
+            "PID_Pu": 0.0,
+            "PID_I": 0.0,
+            "PID_I_Init": 0,
+            "PID_I_High": 0,
+            "PID_I_Low": 0,
+            "PID_Do": 0.0,
+            "PID_Du": 0.0,
+            "SamplingWindow_P": 0,
+            "SamplingWindow_I": 0,
+            "SamplingWindow_D": 0,
+            "UclampMin_On": true,
+            "UclampMin_Init": 200,
+            "UclampMin_LoadUp": 200,
+            "UclampMin_LoadReset": 200,
+            "UclampMin_High": 200,
+            "UclampMin_Low": 200,
+            "ReportingRateLimitNs": 8333333,
+            "TargetTimeFactor": 1.4,
+            "StaleTimeFactor": 5.0,
+            "GpuBoost": false
+        },
+        {
+            "Name": "ADPF_GAME",
+            "PID_On": true,
+            "PID_Po": 3.0,
+            "PID_Pu": 1.0,
+            "PID_I": 0.001,
+            "PID_I_Init": 200,
+            "PID_I_High": 512,
+            "PID_I_Low": -30,
+            "PID_Do": 500.0,
+            "PID_Du": 0.0,
+            "SamplingWindow_P": 1,
+            "SamplingWindow_I": 0,
+            "SamplingWindow_D": 1,
+            "UclampMin_On": true,
+            "UclampMin_Init": 200,
+            "UclampMin_LoadUp": 512,
+            "UclampMin_LoadReset": 512,
+            "UclampMin_High": 640,
+            "UclampMin_Low": 100,
+            "ReportingRateLimitNs": 16666666,
+            "TargetTimeFactor": 1.0,
+            "StaleTimeFactor": 10.0,
+            "GpuBoost": false
         }
     ]
 }
