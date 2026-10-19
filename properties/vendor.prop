@@ -62,8 +62,8 @@ ro.product.mod_device=yupei_in_global
 ro.vendor.displayfeature.dump=true
 
 # DPM
-persist.vendor.dpm.vndr.feature=1
-persist.vendor.dpm.vndr.idletimer.mode=default
+persist.vendor.dpm.feature=0
+persist.vendor.dpm.vndr.feature=0
 
 # DRM
 drm.service.enabled=true
