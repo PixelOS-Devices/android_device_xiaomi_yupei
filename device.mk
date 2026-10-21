@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
 AUDIO_HAL_DIR := hardware/qcom-caf/sm8750/audio/primary-hal
 
 PRODUCT_COPY_FILES += \
-    $(AUDIO_HAL_DIR)/configs/sun/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_tuna/audio_effects_config.xml \
+    $(LOCAL_PATH)/configs/audio/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_tuna/audio_effects_config.xml \
     $(LOCAL_PATH)/configs/audio/audio_module_config_primary.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_module_config_primary.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_tuna/audio_policy_configuration.xml
 
@@ -150,6 +150,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.aiqe-V2-ndk.vendor  \
     vendor.qti.hardware.display.config-V12-ndk.vendor  \
     vendor.qti.hardware.display.composer3-V1-ndk.vendor 
+
+# Dolby
+PRODUCT_PACKAGES += \
+    DolbyAtmos
 
 # DRM
 PRODUCT_PACKAGES += \

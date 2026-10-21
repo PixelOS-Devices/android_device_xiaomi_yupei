@@ -1,0 +1,6 @@
+type hal_aidl_dms_service, hal_service_type, service_manager_type;
+
+binder_call(hal_aidl_dms_client, hal_aidl_dms_server)
+binder_call(hal_aidl_dms_server, hal_aidl_dms_client)
+
+hal_attribute_service(hal_aidl_dms, hal_aidl_dms_service)
