@@ -1,0 +1,16 @@
+type stylus_app, domain, coredomain;
+typeattribute stylus_app mlstrustedsubject;
+
+app_domain(stylus_app)
+binder_call(stylus_app, hal_touchfeature_xiaomi_default)
+
+allow stylus_app activity_service:service_manager find;
+allow stylus_app bluetooth_manager_service:service_manager find;
+allow stylus_app hal_touchfeature_xiaomi_service:service_manager find;
+allow stylus_app input_service:service_manager find;
+
+allow stylus_app self:netlink_kobject_uevent_socket { bind create getopt read setopt };
+dontaudit stylus_app self:capability net_admin;
+
+allow stylus_app system_app_data_file:dir create_dir_perms;
+allow stylus_app system_app_data_file:file create_file_perms;

@@ -1,0 +1,23 @@
+//
+// SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "XiaomiStylus",
+
+    srcs: ["src/**/*.java"],
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+    privapp_allowlist: "privapp-permissions-xiaomi-stylus.xml",
+    system_ext_specific: true,
+
+    static_libs: [
+        "vendor.xiaomi.hw.touchfeature-V1-java",
+    ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+}
