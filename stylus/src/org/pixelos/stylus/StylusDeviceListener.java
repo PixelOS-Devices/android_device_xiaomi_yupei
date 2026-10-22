@@ -5,6 +5,8 @@
 
 package org.pixelos.stylus;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.hardware.input.InputManager;
 import android.os.Handler;
@@ -25,6 +27,8 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
     private static final int PEN_CONNECTED = 0x10;
 
     private final InputManager mInputManager;
+    private final BluetoothAdapter mAdapter;
+    private final PenMipp mMipp;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     // input device id -> pen version
@@ -32,9 +36,12 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
 
     StylusDeviceListener(Context context) {
         mInputManager = context.getSystemService(InputManager.class);
+        mAdapter = context.getSystemService(BluetoothManager.class).getAdapter();
+        mMipp = new PenMipp(context);
     }
 
     void start() {
+        mMipp.start();
         mInputManager.registerInputDeviceListener(this, mHandler);
 
         for (int id : mInputManager.getInputDeviceIds()) {
@@ -57,6 +64,14 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
         mPens.put(deviceId, version);
         Log.i(TAG, "Pen " + device.getName() + " connected, version " + version);
         TouchFeature.setModeValue(TouchFeature.MODE_PEN_CONNECTION, version | PEN_CONNECTED);
+
+        String address = device.getBluetoothAddress();
+        if (address != null && mAdapter != null) {
+            // stock reads the active state first only on this pen
+            boolean activeStateFirst = device.getVendorId() == 0x0022
+                    && device.getProductId() == 0x5081;
+            mMipp.connect(mAdapter.getRemoteDevice(address), activeStateFirst);
+        }
     }
 
     @Override
@@ -70,6 +85,10 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
         mPens.removeAt(index);
         Log.i(TAG, "Pen disconnected, version " + version);
         TouchFeature.setModeValue(TouchFeature.MODE_PEN_CONNECTION, version);
+
+        if (mPens.size() == 0) {
+            mMipp.disconnect();
+        }
     }
 
     @Override

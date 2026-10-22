@@ -24,6 +24,20 @@ final class TouchFeature {
 
     private TouchFeature() {}
 
+    static void setModePackageName(int mode, String name) {
+        IBinder binder = ServiceManager.waitForDeclaredService(SERVICE);
+        if (binder == null) {
+            Log.e(TAG, "Touch feature service is not available");
+            return;
+        }
+
+        try {
+            ITouchFeature.Stub.asInterface(binder).setModePackageName(TOUCH_ID, mode, name);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to set touch mode " + mode + " name to " + name, e);
+        }
+    }
+
     static void setModeValue(int mode, int value) {
         IBinder binder = ServiceManager.waitForDeclaredService(SERVICE);
         if (binder == null) {

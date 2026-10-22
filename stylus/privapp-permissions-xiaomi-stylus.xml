@@ -6,5 +6,6 @@
 <permissions>
     <privapp-permissions package="org.pixelos.stylus">
         <permission name="android.permission.BLUETOOTH_PRIVILEGED" />
+        <permission name="android.permission.LOCAL_MAC_ADDRESS" />
     </privapp-permissions>
 </permissions>
