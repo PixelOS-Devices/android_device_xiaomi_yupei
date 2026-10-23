@@ -1,1 +1,1 @@
-type sysfs_smart_charge, fs_type, sysfs_type;
+type sysfs_charge_interface, fs_type, sysfs_type;

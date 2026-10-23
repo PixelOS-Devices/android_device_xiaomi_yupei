@@ -17,12 +17,11 @@ genfscon sysfs /devices/platform/soc/soc:mca_strategy_wireless_revchg_class u:ob
 genfscon sysfs /devices/platform/soc/soc:mca_strategy_basic_wireless_class u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:mca_strategy_quick_charge u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:mca_strategy_pd_auth u:object_r:vendor_sysfs_xm_power:s0
-genfscon sysfs /devices/platform/soc/soc:mca_charge_interface u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/platform/soc/soc:mca_charge_interface u:object_r:sysfs_charge_interface:s0
 genfscon sysfs /devices/platform/soc/soc:mca_business_charger u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:mca_business_battery u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:strategy-fg u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:mca_bmd u:object_r:vendor_sysfs_xm_power:s0
-genfscon sysfs /devices/platform/soc/soc:smart_charge u:object_r:sysfs_smart_charge:s0
 genfscon sysfs /devices/virtual/xm_power u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/virtual/xm_power/charge_log u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/virtual/xm_power/charge_pump u:object_r:vendor_sysfs_xm_power:s0

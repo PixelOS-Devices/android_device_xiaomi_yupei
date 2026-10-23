@@ -5,4 +5,5 @@
 -->
 <resources>
     <string name="bypass_title">Bypass charging</string>
+    <string name="bypass_summary">Power the tablet directly while plugged in and stop charging the battery</string>
 </resources>

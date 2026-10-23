@@ -7,7 +7,30 @@
     package="org.pixelos.bypass"
     android:sharedUserId="android.uid.system">
 
-    <application android:label="@string/bypass_title">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:label="@string/bypass_title"
+        android:directBootAware="true">
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name=".BypassSwitchesProvider"
+            android:authorities="org.pixelos.bypass.switches"
+            android:exported="true"
+            android:permission="android.permission.WRITE_SECURE_SETTINGS">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+        </provider>
+
         <service
             android:name=".BypassTileService"
             android:exported="true"

@@ -8,6 +8,7 @@ android_app {
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
+    static_libs: ["SettingsLibTile"],
     certificate: "platform",
     platform_apis: true,
     privileged: true,

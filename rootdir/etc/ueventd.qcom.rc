@@ -621,3 +621,6 @@ subsystem mem_buf_vm
 
 # IPA Events
 /dev/ipa_events         0660   radio      radio
+
+# Bypass charging
+/sys/devices/platform/soc/soc:mca_charge_interface charge_enable 0660 system system
