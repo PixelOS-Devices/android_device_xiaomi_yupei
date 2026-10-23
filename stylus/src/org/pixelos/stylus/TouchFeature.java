@@ -38,6 +38,21 @@ final class TouchFeature {
         }
     }
 
+    static void setModeLongValue(int mode, int[] values) {
+        IBinder binder = ServiceManager.waitForDeclaredService(SERVICE);
+        if (binder == null) {
+            Log.e(TAG, "Touch feature service is not available");
+            return;
+        }
+
+        try {
+            ITouchFeature.Stub.asInterface(binder).setModeLongValue(TOUCH_ID, mode,
+                    values.length, values);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to set touch mode " + mode + " data", e);
+        }
+    }
+
     static void setModeValue(int mode, int value) {
         IBinder binder = ServiceManager.waitForDeclaredService(SERVICE);
         if (binder == null) {

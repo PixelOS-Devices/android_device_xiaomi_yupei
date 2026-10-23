@@ -14,3 +14,7 @@ dontaudit stylus_app self:capability net_admin;
 
 allow stylus_app system_app_data_file:dir create_dir_perms;
 allow stylus_app system_app_data_file:file create_file_perms;
+
+allow stylus_app hidraw_device:chr_file r_file_perms;
+allow stylus_app sysfs:dir r_dir_perms;
+allow stylus_app sysfs:lnk_file read;

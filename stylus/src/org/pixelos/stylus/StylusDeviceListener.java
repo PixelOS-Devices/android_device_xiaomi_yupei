@@ -29,6 +29,7 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
     private final InputManager mInputManager;
     private final BluetoothAdapter mAdapter;
     private final PenMipp mMipp;
+    private final PenReports mReports = new PenReports();
     private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     // input device id -> pen version
@@ -72,6 +73,9 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
                     && device.getProductId() == 0x5081;
             mMipp.connect(mAdapter.getRemoteDevice(address), activeStateFirst);
         }
+        if (version == 8) {
+            mReports.start();
+        }
     }
 
     @Override
@@ -88,6 +92,7 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
 
         if (mPens.size() == 0) {
             mMipp.disconnect();
+            mReports.stop();
         }
     }
 
