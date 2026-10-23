@@ -95,6 +95,7 @@ final class PenMipp {
     private byte mTouchId;
     private int mFrequency;
     private boolean mDocked;
+    private final PenRefreshRate mRefreshRate;
 
     private final UEventObserver mObserver = new UEventObserver() {
         @Override
@@ -191,6 +192,7 @@ final class PenMipp {
 
     PenMipp(Context context) {
         mContext = context;
+        mRefreshRate = new PenRefreshRate(context);
     }
 
     void start() {
@@ -231,6 +233,7 @@ final class PenMipp {
         mReplyDescriptor = null;
         mFirmware = null;
         mReady = false;
+        mRefreshRate.setPinned(false);
         mIdStage = 1;
         mFrequency = 0;
     }
@@ -360,6 +363,7 @@ final class PenMipp {
             case 0xd1: // hall state
                 if (!mReady) {
                     mReady = true;
+                    mRefreshRate.setPinned(!mDocked);
                     if (mFirmware != null) {
                         TouchFeature.setModePackageName(MODE_PEN_ID, mFirmware);
                     }
@@ -406,6 +410,7 @@ final class PenMipp {
         }
 
         mDocked = docked;
+        mRefreshRate.setPinned(mReady && !mDocked);
         if (mReady) {
             send(hallCommand());
         }
