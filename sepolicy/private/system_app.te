@@ -1,0 +1,2 @@
+allow system_app sysfs_smart_charge:dir search;
+allow system_app sysfs_smart_charge:file rw_file_perms;

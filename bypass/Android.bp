@@ -1,0 +1,15 @@
+//
+// SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "XiaomiBypass",
+
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+    system_ext_specific: true,
+}

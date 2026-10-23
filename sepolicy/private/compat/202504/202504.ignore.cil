@@ -8,4 +8,5 @@
     vendor_hal_displayfeature_xiaomi_default
     vendor_hal_displayfeature_xiaomi_service
     hal_touchfeature_xiaomi_default
-    hal_touchfeature_xiaomi_service))
+    hal_touchfeature_xiaomi_service
+    sysfs_smart_charge))
