@@ -1,4 +1,4 @@
-# All unpinned firmware below are extracted from onyx OS3.0.7.0.WOLMIXM
+# All unpinned firmware below are extracted from yupei OS3.0.303.0.WPZINXM
 
 abl.img;AB
 aop.img;AB
@@ -15,7 +15,6 @@ idmanager.img;AB
 imagefv.img;AB
 keymaster.img;AB
 modem.img;AB
-modemfirmware.img;AB
 multiimgqti.img;AB
 pvmfw.img;AB
 qupfw.img;AB
