@@ -2713,12 +2713,6 @@ odm/lib64/libmlipay.so
 vendor/lib64/libesesbprovision.so
 vendor/lib64/vendor.xiaomi.hardware.mlipay-V1-ndk.so
 
-# NFC
-odm/etc/libnfc-nci.conf:vendor/etc/libnfc-nci.conf
-odm/etc/libnfc-nxp.conf:vendor/etc/libnfc-nxp.conf
-odm/etc/libnfc-nxp_RF.conf:vendor/libnfc-nxp_RF.conf
-vendor/lib64/libsn220u_fw.so
-
 # Native public libraries
 vendor/etc/public.libraries.txt
 
@@ -3176,17 +3170,6 @@ vendor/lib64/vendor.qti.ims.rcssipaidlservice-V1-ndk.so
 vendor/lib64/vendor.qti.ims.rcsuceaidlservice-V1-ndk.so
 vendor/lib64/vendor.qti.ims.uceaidlservice-V1-ndk.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.syshealthmon-V1-ndk.so
-
-# Secure element
-vendor/bin/hw/android.hardware.secure_element-service.qti
-vendor/etc/init/android.hardware.secure_element-service.qti.rc
-vendor/etc/permissions/com.android.se.xml
-vendor/etc/vintf/manifest/android.hardware.secure_element.xml
-vendor/etc/vintf/manifest/secure_element-service.xml
-vendor/lib64/hw/libEseUtils.so
-vendor/lib64/libGPQeSE.so
-vendor/lib64/libstnfc-streset.so
-vendor/lib64/vendor.xiaomi.hardware.aidl.mtdservice-V1-ndk_platform.so
 
 # SMC Invoke
 vendor/bin/hlosminkdaemon
