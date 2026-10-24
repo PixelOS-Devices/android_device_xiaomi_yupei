@@ -4,15 +4,8 @@ genfscon sysfs /class/qcom-battery u:object_r:vendor_sysfs_qcom_battery:s0
 # Camera
 genfscon sysfs /csiphy_umd_paras/csiphy_umd_paras u:object_r:sysfs_csiphy_umd_paras:s0
 
-# Display
-genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/fingerdown u:object_r:vendor_sysfs_displayfeature:s0
-genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/actpower u:object_r:vendor_sysfs_displayfeature:s0
-
 # Extcon
 genfscon sysfs /devices/platform/soc/soc:spf_core_platform/soc:spf_core_platform:lpass-cdc/wcd9378-codec/extcon                 u:object_r:sysfs_extcon:s0
-
-# Fingerprint
-genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status u:object_r:sysfs_tp_fodstatus:s0
 
 # Info 
 genfscon sysfs /kernel/hardware_info_to_dump/hardw_info u:object_r:vendor_sysfs_hardwareinfo:s0
@@ -44,7 +37,6 @@ genfscon sysfs /devices/virtual/xm_power/typec u:object_r:vendor_sysfs_xm_power:
 genfscon sysfs /devices/virtual/xm_power/wireless_master u:object_r:vendor_sysfs_xm_power:s0
 
 # Sensors
-genfscon sysfs /devices/virtual/touch/touch_dev/fod_longpress_gesture_enabled u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/gesture_double_tap_enabled u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/gesture_double_tap_state u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_enabled u:object_r:vendor_sysfs_sensors:s0
@@ -99,7 +91,6 @@ genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a94000.i2c/i2c-5/5-006b/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300:pwrkey-bark/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300:pwrkey-resin-bark/wakeup u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:mca_business_battery/power_supply/battery/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:mca_qcom_subpmic_proxy/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:mca_business_charger/power_supply/usb/wakeup u:object_r:sysfs_wakeup:s0

@@ -68,10 +68,6 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 # DRM
 drm.service.enabled=true
 
-# fingerprint
-persist.vendor.fingerprint.type=udfps_optical
-persist.vendor.fingerprint.sensor_location=640|2518|105
-
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -202,7 +198,6 @@ ro.vendor.radio.build_region=global
 # Sensors
 ro.vendor.sensors.xiaomi.double_tap=true
 ro.vendor.sensors.xiaomi.single_tap=true
-ro.vendor.sensors.xiaomi.udfps=true
 
 # Shutdown
 sys.vendor.shutdown.waittime=500

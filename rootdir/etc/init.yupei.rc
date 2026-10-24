@@ -25,10 +25,6 @@ on early-boot
     # Enable WLAN cold boot calibration
     write /sys/kernel/cnss/fs_ready 1
 
-    # Fingerprint
-    chown system graphics /sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown
-    chmod 0664 /sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown
-
 on fs
     restorecon_recursive /mnt/rescue
 
@@ -54,23 +50,12 @@ on boot
     #END Thermal_NodeReq
 
     # Xiaomi touch
-    chown system system /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
-    chmod 0660 /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
     chown system system /sys/class/touch/touch_dev/gesture_double_tap_enabled
     chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_enabled
     chown system system /sys/class/touch/touch_dev/gesture_double_tap_state
     chmod 0664 /sys/class/touch/touch_dev/gesture_double_tap_state
     chown system system /sys/class/touch/touch_dev/gesture_single_tap_enabled
     chmod 0660 /sys/class/touch/touch_dev/gesture_single_tap_enabled
-
-    # Fingerprint
-    chmod 0666 /dev/xiaomi-fp
-    chown system system /dev/xiaomi-fp
-    chmod 0666 /dev/mifp_id
-    chown system system /dev/mifp_id
-    chmod 0666 /dev/input/event2
-    chown system system /sys/bus/platform/devices/soc:xiaomi_fingerprint/intr2
-    chmod 0666 /sys/bus/platform/devices/soc:xiaomi_fingerprint/intr2
 
 on charger
     chown system system /sys/class/backlight/panel0-backlight/brightness
@@ -120,21 +105,7 @@ on post-fs-data
     mkdir /data/vendor/mac_addr 0770 system wifi
     mkdir /mnt/vendor/persist/wlan 0770 system wifi
 
-    # Fingerprint
     mkdir /data/vendor/misc 01771 system system
-    mkdir /data/vendor/misc/mi_fp 0770 system system
-    mkdir /persist/mi_fp 0770 system system
-    mkdir /mnt/vendor/persist/mi_fp 0770 system system
-    mkdir /data/vendor/fpc 0770 system system
-    mkdir /data/vendor/fpdump 0770 system system
-    mkdir /data/vendor/goodix 0770 system system
-    mkdir /data/vendor/fpdata 0770 system system
-    mkdir /data/vendor/fingerprint 0770 system system
-    mkdir /mnt/vendor/persist/goodix 0770 system system
-    mkdir /mnt/vendor/persist/fingerprint 0770 system system
-    mkdir /data/vendor/fpdump/qfs4008 0770 system system
-    mkdir /mnt/vendor/persist/fingerprint/meta 0770 system system
-    mkdir /mnt/vendor/persist/fingerprint/jiiov 0770 system system
 
     # Display feature sysfs node
     chown system system /sys/class/mi_display/disp-DSI-0/disp_param

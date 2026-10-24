@@ -67,18 +67,6 @@
 /dev/mi_display/disp_log u:object_r:vendor_displaylog_device:s0
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)? u:object_r:vendor_sysfs_displayfeature:s0
 
-# Fingerprint
-/data/vendor/fpc(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/fpdata(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/fpdump(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/goodix(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/dev/goodix_fp u:object_r:vendor_fingerprint_device:s0
-/dev/mifp_id u:object_r:vendor_fingerprint_device:s0
-/dev/xiaomi-fp u:object_r:vendor_fingerprint_device:s0
-/mnt/vendor/persist/fingerprint(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/mnt/vendor/persist/goodix(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
-
 # GNSS
 /(odm|vendor|vendor/odm|system/vendor/odm)/bin/hw/android\.hardware\.gnss.*-service-qti u:object_r:vendor_hal_gnss_qti_exec:s0
 
@@ -141,7 +129,6 @@
 /sys/devices/virtual/touch/touch_dev/touch_thp_(.*) u:object_r:sysfs_touch_hostprocess:s0
 /sys/devices/virtual/touch/touch_dev/tx_num u:object_r:sysfs_touch_hostprocess:s0
 /sys/devices/virtual/touch/touch_dev/update_rawdata u:object_r:sysfs_touch_hostprocess:s0
-/sys/devices/virtual/touch/tp_dev/fod_status u:object_r:sysfs_tp_fodstatus:s0
 
 # WLAN
 /data/vendor/mac_addr(/.*)? u:object_r:vendor_mac_vendor_data_file:s0

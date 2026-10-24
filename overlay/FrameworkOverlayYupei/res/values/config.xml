@@ -670,9 +670,6 @@
     <!-- Type of the tap sensor. Empty if tap is not supported. -->
     <string name="config_dozeTapSensorType" translatable="false">org.lineageos.sensor.single_tap</string>
 
-    <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
-    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
-
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
@@ -886,11 +883,4 @@
          Note: If the display supports multiple resolutions, please define the path config based on
          the highest resolution so that it can be scaled correctly in each resolution. -->
     <string name="config_mainDisplayShape" translatable="false">M 156,0 H 1124 A 156,156 0 0 1 1280,156 V 2616 A 156,156 0 0 1 1124,2772 H 156 A 156,156 0 0 1 0,2616 V 156 A 156,156 0 0 1 156,0 Z</string>
-
-    <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
-    <bool name="config_screen_off_udfps_enabled">true</bool>
-
-    <!-- Default value for fp screen off unlock toggle, it only works for the devices that support
-         fp screen off unlock-->
-    <bool name="config_screen_off_udfps_default_on">true</bool>
 </resources>
