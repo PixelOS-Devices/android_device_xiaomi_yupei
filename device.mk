@@ -392,6 +392,3 @@ PRODUCT_COPY_FILES += \
 
 # Vendor
 $(call inherit-product, vendor/xiaomi/yupei/yupei-vendor.mk)
-
-# Vendor MiuiCamera
-$(call inherit-product-if-exists, device/xiaomi/yupei-miuicamera/device.mk)

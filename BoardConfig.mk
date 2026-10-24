@@ -264,6 +264,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Vendor
 include vendor/xiaomi/yupei/BoardConfigVendor.mk
-
-# Vendor MiuiCamera
--include device/xiaomi/yupei-miuicamera/BoardConfig.mk
