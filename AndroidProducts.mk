@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/custom_onyx.mk
+    $(LOCAL_DIR)/custom_yupei.mk

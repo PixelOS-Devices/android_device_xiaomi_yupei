@@ -4,12 +4,12 @@
 //
 
 cc_binary {
-    name: "android.hardware.light-service.onyx",
+    name: "android.hardware.light-service.yupei",
     defaults: ["hidl_defaults"],
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["android.hardware.light-service.onyx.rc"],
-    vintf_fragments: ["android.hardware.light-service.onyx.xml"],
+    init_rc: ["android.hardware.light-service.yupei.rc"],
+    vintf_fragments: ["android.hardware.light-service.yupei.xml"],
     srcs: [
         "models/Color.cpp",
         "models/State.cpp",

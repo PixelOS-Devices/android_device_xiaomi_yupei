@@ -5,7 +5,7 @@
 
 #include "Lights.h"
 
-#define LOG_TAG "android.hardware.light-service.onyx"
+#define LOG_TAG "android.hardware.light-service.yupei"
 
 #include <android-base/logging.h>
 #include <android-base/properties.h>

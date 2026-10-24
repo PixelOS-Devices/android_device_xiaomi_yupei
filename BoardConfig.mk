@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/onyx
+DEVICE_PATH := device/xiaomi/yupei
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
@@ -88,7 +88,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8735
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
     vendor/sun_perf.config \
-    vendor/onyx_perf.config \
+    vendor/yupei_perf.config \
 
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
@@ -266,7 +266,7 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Vendor
-include vendor/xiaomi/onyx/BoardConfigVendor.mk
+include vendor/xiaomi/yupei/BoardConfigVendor.mk
 
 # Vendor MiuiCamera
--include device/xiaomi/onyx-miuicamera/BoardConfig.mk
+-include device/xiaomi/yupei-miuicamera/BoardConfig.mk

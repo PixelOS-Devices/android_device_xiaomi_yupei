@@ -56,7 +56,7 @@ vendor.wv.oemcrypto.debug.enable_hlos_data_path=true
 
 # Device
 ro.product.marketname=POCO F7
-ro.product.mod_device=onyx_global
+ro.product.mod_device=yupei_global
 
 # Displayfeature
 ro.vendor.displayfeature.dump=true

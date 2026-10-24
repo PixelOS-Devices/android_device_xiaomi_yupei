@@ -83,8 +83,8 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.onyx.rc",
-    src: "etc/init.onyx.rc",
+    name: "init.yupei.rc",
+    src: "etc/init.yupei.rc",
     sub_dir: "init",
     vendor: true,
 }
@@ -118,8 +118,8 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "ueventd-odm-onyx.rc",
-    src: "etc/ueventd-odm-onyx.rc",
+    name: "ueventd-odm-yupei.rc",
+    src: "etc/ueventd-odm-yupei.rc",
     device_specific: true,
 }
 

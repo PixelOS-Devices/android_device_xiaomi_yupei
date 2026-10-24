@@ -200,12 +200,12 @@ PRODUCT_PACKAGES += \
     fstab.qcom
 
 PRODUCT_PACKAGES += \
-    ueventd-odm-onyx.rc \
+    ueventd-odm-yupei.rc \
     ueventd-odm.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.onyx.rc \
+    init.yupei.rc \
     init.qcom.rc \
     init.qti.kernel.rc \
     init.recovery.qcom.rc \
@@ -252,7 +252,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/nxp/weaver/generic
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hal_uuid_map.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hal_uuid_map_onyx.xml
+    $(LOCAL_PATH)/configs/hal_uuid_map.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hal_uuid_map_yupei.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml \
@@ -260,7 +260,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.onyx
+    android.hardware.light-service.yupei
 
 # Lineage Health
 PRODUCT_PACKAGES += \
@@ -313,21 +313,13 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    ApertureOverlayOnyx \
-    CarrierConfigOverlayOnyx \
-    CustomSettingsOverlayOnyx \
-    SystemUIOverlayOnyx \
-    TelephonyOverlayOnyx \
-    FrameworkOverlayOnyx \
-    FrameworkOverlayOnyxCN \
-    FrameworkOverlayOnyxGL \
-    NfcOverlayOnyx \
-    SettingsOverlayOnyx \
-    SettingsProviderOverlayOnyx \
-    SettingsProviderOverlayOnyxCN \
-    SecureElementOverlayOnyx \
-    WifiOverlayOnyx \
-    WifiOverlayOnyxCN
+    CarrierConfigOverlayYupei \
+    TelephonyOverlayYupei \
+    FrameworkOverlayYupei \
+    NfcOverlayYupei \
+    SecureElementOverlayYupei \
+    SettingsProviderOverlayYupei \
+    WifiOverlayYupei
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -345,12 +337,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-# Properties
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/properties/odm_CN.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_CN.prop \
-    $(LOCAL_PATH)/properties/odm_GL.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_GL.prop \
-    $(LOCAL_PATH)/properties/odm_IN.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_IN.prop
 
 # QSPA
 PRODUCT_PACKAGES += \
@@ -499,7 +485,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml
 
 # Vendor
-$(call inherit-product, vendor/xiaomi/onyx/onyx-vendor.mk)
+$(call inherit-product, vendor/xiaomi/yupei/yupei-vendor.mk)
 
 # Vendor MiuiCamera
-$(call inherit-product-if-exists, device/xiaomi/onyx-miuicamera/device.mk)
+$(call inherit-product-if-exists, device/xiaomi/yupei-miuicamera/device.mk)

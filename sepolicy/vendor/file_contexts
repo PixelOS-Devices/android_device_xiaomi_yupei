@@ -87,7 +87,7 @@
 
 
 # LED
-/vendor/bin/hw/android\.hardware\.light-service\.onyx u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.light-service\.yupei u:object_r:hal_light_default_exec:s0
 
 # Metis/Migt
 /dev/metis u:object_r:migt_dev:s0
