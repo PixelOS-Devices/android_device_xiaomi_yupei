@@ -624,3 +624,6 @@ subsystem mem_buf_vm
 
 # Bypass charging
 /sys/devices/platform/soc/soc:mca_charge_interface charge_enable 0660 system system
+
+# NT synchronization
+/dev/ntsync                 0666   root     root
