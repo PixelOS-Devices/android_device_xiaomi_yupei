@@ -393,6 +393,26 @@
             "Type": "Event"
         },
         {
+            "Name": "sysDevicesSystemCpuCpu7CoreCtlEnable",
+            "Path": "/sys/devices/system/cpu/cpu7/core_ctl/enable",
+            "Values": [
+                "1",
+                "0"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "sysClassThermalThermalMessageSconfig",
+            "Path": "/sys/class/thermal/thermal_message/sconfig",
+            "Values": [
+                "0",
+                "18"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
             "Name": "GAME",
             "Paths": [
                 "<AdpfConfig>:GAME"
@@ -965,6 +985,84 @@
             "PowerHint": "GAME",
             "Node": "GAME",
             "Value": "ADPF_GAME",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpu5CoreCtlEnable",
+            "Value": "0",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpu7CoreCtlEnable",
+            "Value": "0",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "procSysWaltSchedBoost",
+            "Value": "2",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysClassThermalThermalMessageSconfig",
+            "Value": "18",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveHighFreq",
+            "Value": "1632000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveHighFreq",
+            "Value": "1632000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveHighFreq",
+            "Value": "1728000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveLowFreq",
+            "Value": "1401600",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveLowFreq",
+            "Value": "1286400",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLowFreq",
+            "Value": "1516800",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveLevel1",
+            "Value": "1190400",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy2WaltAdaptiveLevel1",
+            "Value": "1056000",
+            "Duration": 0
+        },
+        {
+            "PowerHint": "GAME",
+            "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLevel1",
+            "Value": "1190400",
             "Duration": 0
         }
     ],
