@@ -163,6 +163,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
+# Emulators
+PRODUCT_PACKAGES += \
+    EmulatorGameMode
+
 # Graphics
 TARGET_USES_VULKAN = true
 

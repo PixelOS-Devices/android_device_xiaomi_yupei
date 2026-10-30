@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string-array name="emulator_packages" translatable="false">
+        <item>com.winlator</item>
+        <item>com.xiaoji.egggame</item>
+        <item>dev.eden.eden_emulator</item>
+        <item>org.citron.citron_emu</item>
+        <item>org.sudachi.sudachi_emu</item>
+        <item>org.yuzu.yuzu_emu</item>
+        <item>emu.skyline</item>
+        <item>org.vita3k.emulator</item>
+        <item>xyz.aethersx2.android</item>
+        <item>org.dolphinemu.dolphinemu</item>
+        <item>org.citra.citra_emu</item>
+        <item>io.github.lime3ds.android</item>
+        <item>org.azahar_emu.azahar</item>
+        <item>com.github.stenzek.duckstation</item>
+        <item>org.ppsspp.ppsspp</item>
+        <item>org.ppsspp.ppssppgold</item>
+        <item>me.magnum.melonds</item>
+        <item>com.retroarch</item>
+        <item>com.retroarch.aarch64</item>
+        <item>com.swordfish.lemuroid</item>
+    </string-array>
+</resources>
