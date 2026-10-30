@@ -111,6 +111,7 @@ function configure_thp()
 	else
 		echo always > /sys/kernel/mm/transparent_hugepage/enabled
 	fi
+	echo inherit > /sys/kernel/mm/transparent_hugepage/hugepages-64kB/enabled
 	# Prevent page faults on THP-elgible VMAs from causing reclaim or compaction
 	echo never > /sys/kernel/mm/transparent_hugepage/defrag
 
