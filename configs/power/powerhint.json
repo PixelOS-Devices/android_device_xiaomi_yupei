@@ -366,7 +366,8 @@
             "Path": "/sys/kernel/msm_performance/parameters/cpu_min_freq",
             "Values": [
                 "0:0 1:0 2:0 3:0 4:0 5:0 6:0 7:0",
-                "0:1632000 1:1632000 2:1286400 3:1286400 4:1286400 5:2208000 6:2208000 7:1670400"
+                "0:1632000 1:1632000 2:1286400 3:1286400 4:1286400 5:2208000 6:2208000 7:1670400",
+                "0:1401600 1:1401600 2:1516800 3:1516800 4:1516800 5:1516800 6:1516800 7:1478400"
             ],
             "DefaultIndex": 0,
             "ResetOnInit": true
@@ -408,6 +409,16 @@
             "Values": [
                 "0",
                 "18"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "sysClassKgslKgsl3d0MinPwrlevel",
+            "Path": "/sys/class/kgsl/kgsl-3d0/min_pwrlevel",
+            "Values": [
+                "10",
+                "6"
             ],
             "DefaultIndex": 0,
             "ResetOnInit": true
@@ -974,6 +985,18 @@
             "Node": "sysDevicesSystemCpuCpufreqPolicy5WaltAdaptiveLevel1",
             "Value": "1190400",
             "Duration": 0
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysClassKgslKgsl3d0MinPwrlevel",
+            "Value": "6",
+            "Duration": 1000
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "sysKernelMsmPerformanceParametersCpuMinFreq",
+            "Value": "0:1401600 1:1401600 2:1516800 3:1516800 4:1516800 5:1516800 6:1516800 7:1478400",
+            "Duration": 1000
         },
         {
             "PowerHint": "SUSTAINED_PERFORMANCE",
