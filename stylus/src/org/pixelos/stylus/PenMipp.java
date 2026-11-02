@@ -56,6 +56,7 @@ final class PenMipp {
     private static final int MODE_PEN_ID = 22;
     private static final int MODE_PEN_ACTIVE_STATE = 29;
     private static final int MODE_PEN_READY = 37;
+    private static final int MODE_PEN_HOVER = 39;
 
     // what the touch driver gets in MODE_PEN_ID once the pen took a change
     private static final int ACK_FREQUENCY = 49;
@@ -227,6 +228,7 @@ final class PenMipp {
             mGatt = null;
         }
         if (mReady) {
+            TouchFeature.setModeValue(MODE_PEN_HOVER, 0);
             TouchFeature.setModeValue(MODE_PEN_READY, 0);
         }
         mCommand = null;
@@ -368,6 +370,7 @@ final class PenMipp {
                         TouchFeature.setModePackageName(MODE_PEN_ID, mFirmware);
                     }
                     TouchFeature.setModeValue(MODE_PEN_READY, 1);
+                    TouchFeature.setModeValue(MODE_PEN_HOVER, 1);
                     PowerManager pm = mContext.getSystemService(PowerManager.class);
                     send(screenCommand(pm == null || pm.isInteractive()));
                     Log.i(TAG, "Pen is set up");
