@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string-array name="gesture_action_entries" translatable="false">
+        <item>@string/action_none</item>
+        <item>@string/action_pie</item>
+        <item>@string/action_notes</item>
+        <item>@string/action_screenshot</item>
+        <item>@string/action_assistant</item>
+        <item>@string/action_recents</item>
+        <item>@string/action_play_pause</item>
+        <item>@string/action_scroll_up</item>
+        <item>@string/action_scroll_down</item>
+    </string-array>
+
+    <string-array name="gesture_action_values" translatable="false">
+        <item>none</item>
+        <item>pie</item>
+        <item>notes</item>
+        <item>screenshot</item>
+        <item>assistant</item>
+        <item>recents</item>
+        <item>play_pause</item>
+        <item>scroll_up</item>
+        <item>scroll_down</item>
+    </string-array>
+
+    <string-array name="pie_action_entries" translatable="false">
+        <item>@string/action_notes</item>
+        <item>@string/action_screenshot</item>
+        <item>@string/action_assistant</item>
+        <item>@string/action_recents</item>
+        <item>@string/action_play_pause</item>
+    </string-array>
+
+    <string-array name="pie_action_values" translatable="false">
+        <item>notes</item>
+        <item>screenshot</item>
+        <item>assistant</item>
+        <item>recents</item>
+        <item>play_pause</item>
+    </string-array>
+
+    <string-array name="pie_action_defaults" translatable="false">
+        <item>notes</item>
+        <item>screenshot</item>
+        <item>assistant</item>
+    </string-array>
+</resources>

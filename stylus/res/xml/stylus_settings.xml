@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/gestures_title">
+
+        <ListPreference
+            android:key="squeeze"
+            android:title="@string/gesture_squeeze"
+            android:entries="@array/gesture_action_entries"
+            android:entryValues="@array/gesture_action_values"
+            android:defaultValue="pie"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="double_tap"
+            android:title="@string/gesture_double_tap"
+            android:entries="@array/gesture_action_entries"
+            android:entryValues="@array/gesture_action_values"
+            android:defaultValue="none"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="swipe_up"
+            android:title="@string/gesture_swipe_up"
+            android:entries="@array/gesture_action_entries"
+            android:entryValues="@array/gesture_action_values"
+            android:defaultValue="scroll_up"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="swipe_down"
+            android:title="@string/gesture_swipe_down"
+            android:entries="@array/gesture_action_entries"
+            android:entryValues="@array/gesture_action_values"
+            android:defaultValue="scroll_down"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            android:summary="@string/gestures_footer"
+            android:selectable="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/notes_title">
+
+        <ListPreference
+            android:key="notes_app"
+            android:title="@string/notes_app_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pie_title">
+
+        <MultiSelectListPreference
+            android:key="pie_actions"
+            android:title="@string/pie_actions_title"
+            android:summary="@string/pie_actions_summary"
+            android:entries="@array/pie_action_entries"
+            android:entryValues="@array/pie_action_values"
+            android:defaultValue="@array/pie_action_defaults"
+            android:positiveButtonText="@android:string/ok"
+            android:negativeButtonText="@android:string/cancel" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

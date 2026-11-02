@@ -6,7 +6,11 @@
 package org.pixelos.stylus;
 
 import android.app.Application;
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
+
+import com.xiaomi.touchservice.R;
 
 public class StylusApplication extends Application {
 
@@ -21,6 +25,9 @@ public class StylusApplication extends Application {
         super.onCreate();
 
         Settings.System.putString(getContentResolver(), PENCIL_ENGINE_VERSION, "0.3.2");
+        PreferenceManager.setDefaultValues(createDeviceProtectedStorageContext(),
+                PreferenceManager.getDefaultSharedPreferencesName(this), Context.MODE_PRIVATE,
+                R.xml.stylus_settings, false);
 
         mStylusDeviceListener = new StylusDeviceListener(this);
         mStylusDeviceListener.start();

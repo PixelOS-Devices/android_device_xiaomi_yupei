@@ -7,12 +7,16 @@ package org.pixelos.stylus;
 
 import android.app.ActivityTaskManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.input.InputManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.os.UserHandle;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.InputDevice;
@@ -22,8 +26,11 @@ import android.view.MotionEvent;
 
 import com.xiaomi.touchservice.pencilengine.PencilEngineManagerService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /*
  * The Focus Pen Pro sends its squeeze, double tap and swipe gestures in
@@ -66,20 +73,27 @@ final class PenGestures {
     // mouse wheel steps one swipe scrolls by, most apps ignore page keys
     private static final float SCROLL_STEPS = 8;
 
-    private static final List<String> PIE_ACTIONS = Arrays.asList(
-            ACTION_NOTES, ACTION_SCREENSHOT, ACTION_ASSISTANT);
+    private static final String PIE_ACTIONS = "pie_actions";
+    static final String NOTES_APP = "notes_app";
+
+    // every action the pie can show, in the order it shows them
+    private static final List<String> PIE_CHOICES = Arrays.asList(ACTION_NOTES,
+            ACTION_SCREENSHOT, ACTION_ASSISTANT, ACTION_RECENTS, ACTION_PLAY_PAUSE);
 
     private final Context mContext;
     private final PenMipp mMipp;
     private final InputManager mInputManager;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
     private final PenPie mPie;
+    private final SharedPreferences mPrefs;
 
     PenGestures(Context context, PenMipp mipp) {
         mContext = context;
         mMipp = mipp;
         mInputManager = context.getSystemService(InputManager.class);
         mPie = new PenPie(context, this::run);
+        mPrefs = context.createDeviceProtectedStorageContext().getSharedPreferences(
+                PreferenceManager.getDefaultSharedPreferencesName(context), Context.MODE_PRIVATE);
     }
 
     void onReport(int usage) {
@@ -114,7 +128,7 @@ final class PenGestures {
 
     void run(String action) {
         if (ACTION_PIE.equals(action)) {
-            mPie.toggle(PIE_ACTIONS);
+            mPie.toggle(pieActions());
             return;
         }
         if (ACTION_SCROLL_UP.equals(action)) {
@@ -123,6 +137,9 @@ final class PenGestures {
         }
         if (ACTION_SCROLL_DOWN.equals(action)) {
             injectScroll(-SCROLL_STEPS);
+            return;
+        }
+        if (ACTION_NOTES.equals(action) && openNotesApp()) {
             return;
         }
 
@@ -209,17 +226,36 @@ final class PenGestures {
         }
     }
 
-    private static String actionFor(String gesture) {
-        switch (gesture) {
-            case SQUEEZE:
-                return ACTION_PIE;
-            case SWIPE_UP:
-                return ACTION_SCROLL_UP;
-            case SWIPE_DOWN:
-                return ACTION_SCROLL_DOWN;
-            default:
-                return ACTION_NONE;
+    private String actionFor(String gesture) {
+        return mPrefs.getString(gesture, ACTION_NONE);
+    }
+
+    // the system notes role opens through the stylus tail key when no app is picked
+    private boolean openNotesApp() {
+        String packageName = mPrefs.getString(NOTES_APP, null);
+        if (packageName == null) {
+            return false;
         }
+
+        Intent intent = mContext.getPackageManager().getLaunchIntentForPackage(packageName);
+        if (intent == null) {
+            Log.w(TAG, "Notes app " + packageName + " can't be launched");
+            return false;
+        }
+        mContext.startActivityAsUser(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                UserHandle.CURRENT);
+        return true;
+    }
+
+    private List<String> pieActions() {
+        Set<String> selected = mPrefs.getStringSet(PIE_ACTIONS, Collections.emptySet());
+        List<String> actions = new ArrayList<>();
+        for (String action : PIE_CHOICES) {
+            if (selected.contains(action)) {
+                actions.add(action);
+            }
+        }
+        return actions;
     }
 
     private static int keyCodeFor(String action) {

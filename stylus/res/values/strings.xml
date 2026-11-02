@@ -4,9 +4,30 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <string name="stylus_title">Stylus</string>
+    <string name="stylus_summary">Pen gestures and action pie</string>
+
+    <string name="gestures_title">Gestures</string>
+    <string name="gesture_squeeze">Squeeze</string>
+    <string name="gesture_double_tap">Double tap</string>
+    <string name="gesture_swipe_up">Swipe up</string>
+    <string name="gesture_swipe_down">Swipe down</string>
+    <string name="gestures_footer">Pen apps that support it get the double tap and swipes themselves while they\'re open.</string>
+
+    <string name="notes_title">Notes</string>
+    <string name="notes_app_title">Notes app</string>
+
+    <string name="pie_title">Action pie</string>
+    <string name="pie_actions_title">Actions</string>
+    <string name="pie_actions_summary">Choose what the pie shows</string>
+
+    <string name="action_none">Nothing</string>
+    <string name="action_pie">Open action pie</string>
     <string name="action_notes">Notes</string>
     <string name="action_screenshot">Screenshot</string>
     <string name="action_assistant">Assistant</string>
     <string name="action_recents">Recents</string>
     <string name="action_play_pause">Play or pause</string>
+    <string name="action_scroll_up">Scroll up</string>
+    <string name="action_scroll_down">Scroll down</string>
 </resources>

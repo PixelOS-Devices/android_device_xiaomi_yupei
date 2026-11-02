@@ -20,5 +20,24 @@
         <service
             android:name="com.xiaomi.touchservice.pencilengine.PencilEngineManagerService"
             android:exported="true" />
+
+        <activity
+            android:name="org.pixelos.stylus.StylusSettingsActivity"
+            android:exported="true"
+            android:label="@string/stylus_title"
+            android:theme="@style/Theme.Stylus">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.connect" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_pie_notes" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/stylus_summary" />
+        </activity>
     </application>
 </manifest>

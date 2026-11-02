@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <style name="Theme.Stylus" parent="Theme.SubSettingsBase">
+        <!-- the preference row ripple reads the AppCompat attribute -->
+        <item name="colorControlHighlight">?android:attr/colorControlHighlight</item>
+    </style>
+</resources>

@@ -17,6 +17,8 @@ android_app {
     system_ext_specific: true,
 
     static_libs: [
+        "SettingsLibCollapsingToolbarBaseActivity",
+        "androidx.preference_preference",
         "vendor.xiaomi.hw.touchfeature-V1-java",
     ],
 
