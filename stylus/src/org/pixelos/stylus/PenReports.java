@@ -16,7 +16,8 @@ import java.nio.file.Files;
  * The Focus Pen Pro measures tip pressure itself and sends it over
  * Bluetooth as HID report 5, next to the transmit frequencies it uses.
  * The touch firmware needs that report to tell contact from hover, so
- * pass every report on to the touch HAL the way stock does.
+ * pass every report on to the touch HAL the way stock does. Report 2
+ * carries the pen gestures.
  */
 final class PenReports {
 
@@ -26,11 +27,18 @@ final class PenReports {
     // hidraw nodes link to their HID device, named bus:vendor:product.instance
     private static final String PEN_HID_ID = "0005:0022:5081.";
 
+    private static final int REPORT_GESTURE = 2;
     private static final int REPORT_PRESSURE = 5;
     private static final int REPORT_PRESSURE_LEN = 15;
     private static final int MODE_PEN_PRESSURE = 1088;
 
+    private final PenGestures mGestures;
+
     private Thread mThread;
+
+    PenReports(PenGestures gestures) {
+        mGestures = gestures;
+    }
 
     synchronized void start() {
         if (mThread != null && mThread.isAlive()) {
@@ -72,7 +80,7 @@ final class PenReports {
         return null;
     }
 
-    private static void forward(String node) {
+    private void forward(String node) {
         Log.i(TAG, "Forwarding pen reports from " + node);
         byte[] buf = new byte[64];
         try (FileInputStream in = new FileInputStream(node)) {
@@ -80,6 +88,10 @@ final class PenReports {
                 int len = in.read(buf);
                 if (len < 0) {
                     break;
+                }
+                if (len > 1 && buf[0] == REPORT_GESTURE) {
+                    mGestures.onReport(buf[1] & 0xff);
+                    continue;
                 }
                 if (len != REPORT_PRESSURE_LEN || buf[0] != REPORT_PRESSURE) {
                     continue;

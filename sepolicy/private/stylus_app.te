@@ -5,6 +5,7 @@ app_domain(stylus_app)
 binder_call(stylus_app, hal_touchfeature_xiaomi_default)
 
 allow stylus_app activity_service:service_manager find;
+allow stylus_app app_api_service:service_manager find;
 allow stylus_app bluetooth_manager_service:service_manager find;
 allow stylus_app hal_touchfeature_xiaomi_service:service_manager find;
 allow stylus_app input_service:service_manager find;

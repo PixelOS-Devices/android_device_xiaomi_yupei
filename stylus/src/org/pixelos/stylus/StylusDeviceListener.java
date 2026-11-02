@@ -29,7 +29,7 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
     private final InputManager mInputManager;
     private final BluetoothAdapter mAdapter;
     private final PenMipp mMipp;
-    private final PenReports mReports = new PenReports();
+    private final PenReports mReports;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     // input device id -> pen version
@@ -39,6 +39,7 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
         mInputManager = context.getSystemService(InputManager.class);
         mAdapter = context.getSystemService(BluetoothManager.class).getAdapter();
         mMipp = new PenMipp(context);
+        mReports = new PenReports(new PenGestures(context, mMipp));
     }
 
     void start() {

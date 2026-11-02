@@ -419,6 +419,12 @@ final class PenMipp {
         }
     }
 
+    void vibrate(int type, int strength) {
+        if (mReady) {
+            send(new byte[] { 0x5e, 0x02, (byte) type, (byte) strength });
+        }
+    }
+
     private void send(byte[] value) {
         send(value, 0);
     }
