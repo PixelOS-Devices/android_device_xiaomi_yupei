@@ -1898,6 +1898,9 @@ vendor/lib64/libQnnSaver.so
 vendor/lib64/libQnnSystem.so
 vendor/lib64/libSEGModel.so
 
+# Pencil engine
+system_ext/framework/xiaomi-pencilengine-pad.jar
+
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service

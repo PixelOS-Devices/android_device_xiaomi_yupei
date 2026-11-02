@@ -4,7 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.pixelos.stylus"
+    package="com.xiaomi.touchservice"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
@@ -13,7 +13,12 @@
     <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
 
     <application
-        android:name=".StylusApplication"
+        android:name="org.pixelos.stylus.StylusApplication"
         android:directBootAware="true"
-        android:persistent="true" />
+        android:persistent="true">
+
+        <service
+            android:name="com.xiaomi.touchservice.pencilengine.PencilEngineManagerService"
+            android:exported="true" />
+    </application>
 </manifest>

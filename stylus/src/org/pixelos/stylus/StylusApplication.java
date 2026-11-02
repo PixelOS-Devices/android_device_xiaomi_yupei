@@ -6,8 +6,12 @@
 package org.pixelos.stylus;
 
 import android.app.Application;
+import android.provider.Settings;
 
 public class StylusApplication extends Application {
+
+    // Xiaomi pen apps only give the pencil engine their package name from this version on
+    private static final String PENCIL_ENGINE_VERSION = "stylus_pencil_engine_version";
 
     private PenPairing mPenPairing;
     private StylusDeviceListener mStylusDeviceListener;
@@ -15,6 +19,8 @@ public class StylusApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Settings.System.putString(getContentResolver(), PENCIL_ENGINE_VERSION, "0.3.2");
 
         mStylusDeviceListener = new StylusDeviceListener(this);
         mStylusDeviceListener.start();

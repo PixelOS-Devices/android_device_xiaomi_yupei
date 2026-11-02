@@ -4,7 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <permissions>
-    <privapp-permissions package="org.pixelos.stylus">
+    <privapp-permissions package="com.xiaomi.touchservice">
         <permission name="android.permission.BLUETOOTH_PRIVILEGED" />
         <permission name="android.permission.LOCAL_MAC_ADDRESS" />
     </privapp-permissions>

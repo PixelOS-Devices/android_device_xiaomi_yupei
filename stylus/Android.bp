@@ -6,7 +6,10 @@
 android_app {
     name: "XiaomiStylus",
 
-    srcs: ["src/**/*.java"],
+    srcs: [
+        "src/**/*.aidl",
+        "src/**/*.java",
+    ],
     certificate: "platform",
     platform_apis: true,
     privileged: true,
@@ -16,6 +19,10 @@ android_app {
     static_libs: [
         "vendor.xiaomi.hw.touchfeature-V1-java",
     ],
+
+    aidl: {
+        local_include_dirs: ["src"],
+    },
 
     optimize: {
         proguard_flags_files: ["proguard.flags"],

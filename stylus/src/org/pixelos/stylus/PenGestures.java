@@ -5,11 +5,13 @@
 
 package org.pixelos.stylus;
 
+import android.app.ActivityTaskManager;
 import android.content.Context;
 import android.hardware.input.InputManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -18,11 +20,15 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
+import com.xiaomi.touchservice.pencilengine.PencilEngineManagerService;
+
 /*
  * The Focus Pen Pro sends its squeeze, double tap and swipe gestures in
  * HID report 2, one keyboard usage per gesture. The kernel keeps that
  * report off the input devices, so the gestures come from hidraw and each
- * one runs its action here as an injected key or scroll.
+ * one runs its action here as an injected key or scroll. A pen app
+ * that asked the pencil engine for the gestures gets the double tap and
+ * swipes itself while it is in front, as the button keys stock sends it.
  */
 final class PenGestures {
 
@@ -76,6 +82,14 @@ final class PenGestures {
 
     private void onGesture(String gesture) {
         if (!mContext.getSystemService(PowerManager.class).isInteractive()) {
+            return;
+        }
+
+        if (!SQUEEZE.equals(gesture)
+                && PencilEngineManagerService.wantsGestures(focusedPackage())) {
+            Log.i(TAG, "Pen " + gesture + ", passing it to the app");
+            vibrate(gesture);
+            injectKey(appKeyCodeFor(gesture));
             return;
         }
 
@@ -142,6 +156,20 @@ final class PenGestures {
         scroll.recycle();
     }
 
+    private static String focusedPackage() {
+        try {
+            ActivityTaskManager.RootTaskInfo info =
+                    ActivityTaskManager.getService().getFocusedRootTaskInfo();
+            if (info == null || info.topActivity == null) {
+                return null;
+            }
+            return info.topActivity.getPackageName();
+        } catch (RemoteException e) {
+            Log.w(TAG, "Failed to get the focused app", e);
+            return null;
+        }
+    }
+
     private static String gestureFor(int usage) {
         switch (usage) {
             case USAGE_SQUEEZE:
@@ -154,6 +182,17 @@ final class PenGestures {
                 return SWIPE_DOWN;
             default:
                 return null;
+        }
+    }
+
+    private static int appKeyCodeFor(String gesture) {
+        switch (gesture) {
+            case DOUBLE_TAP:
+                return KeyEvent.KEYCODE_BUTTON_8;
+            case SWIPE_UP:
+                return KeyEvent.KEYCODE_BUTTON_9;
+            default:
+                return KeyEvent.KEYCODE_BUTTON_10;
         }
     }
 
