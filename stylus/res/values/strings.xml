@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Yet Another AOSP Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="action_notes">Notes</string>
+    <string name="action_screenshot">Screenshot</string>
+    <string name="action_assistant">Assistant</string>
+    <string name="action_recents">Recents</string>
+    <string name="action_play_pause">Play or pause</string>
+</resources>

@@ -22,6 +22,9 @@ import android.view.MotionEvent;
 
 import com.xiaomi.touchservice.pencilengine.PencilEngineManagerService;
 
+import java.util.Arrays;
+import java.util.List;
+
 /*
  * The Focus Pen Pro sends its squeeze, double tap and swipe gestures in
  * HID report 2, one keyboard usage per gesture. The kernel keeps that
@@ -46,6 +49,7 @@ final class PenGestures {
     static final String SWIPE_DOWN = "swipe_down";
 
     static final String ACTION_NONE = "none";
+    static final String ACTION_PIE = "pie";
     static final String ACTION_NOTES = "notes";
     static final String ACTION_SCREENSHOT = "screenshot";
     static final String ACTION_ASSISTANT = "assistant";
@@ -62,15 +66,20 @@ final class PenGestures {
     // mouse wheel steps one swipe scrolls by, most apps ignore page keys
     private static final float SCROLL_STEPS = 8;
 
+    private static final List<String> PIE_ACTIONS = Arrays.asList(
+            ACTION_NOTES, ACTION_SCREENSHOT, ACTION_ASSISTANT);
+
     private final Context mContext;
     private final PenMipp mMipp;
     private final InputManager mInputManager;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
+    private final PenPie mPie;
 
     PenGestures(Context context, PenMipp mipp) {
         mContext = context;
         mMipp = mipp;
         mInputManager = context.getSystemService(InputManager.class);
+        mPie = new PenPie(context, this::run);
     }
 
     void onReport(int usage) {
@@ -104,6 +113,10 @@ final class PenGestures {
     }
 
     void run(String action) {
+        if (ACTION_PIE.equals(action)) {
+            mPie.toggle(PIE_ACTIONS);
+            return;
+        }
         if (ACTION_SCROLL_UP.equals(action)) {
             injectScroll(SCROLL_STEPS);
             return;
@@ -198,6 +211,8 @@ final class PenGestures {
 
     private static String actionFor(String gesture) {
         switch (gesture) {
+            case SQUEEZE:
+                return ACTION_PIE;
             case SWIPE_UP:
                 return ACTION_SCROLL_UP;
             case SWIPE_DOWN:
