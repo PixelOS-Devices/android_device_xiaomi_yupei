@@ -74,8 +74,8 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
                     && device.getProductId() == 0x5081;
             mMipp.connect(mAdapter.getRemoteDevice(address), activeStateFirst);
         }
-        if (version == 8) {
-            mReports.start();
+        if (hasPenReports(device.getVendorId(), device.getProductId())) {
+            mReports.start(device.getVendorId(), device.getProductId());
         }
     }
 
@@ -99,6 +99,13 @@ final class StylusDeviceListener implements InputManager.InputDeviceListener {
 
     @Override
     public void onInputDeviceChanged(int deviceId) {}
+
+    private static boolean hasPenReports(int vendorId, int productId) {
+        if (vendorId != 0x0022) {
+            return false;
+        }
+        return productId == 0x4d80 || productId == 0x5081;
+    }
 
     private static int getPenVersion(int vendorId, int productId) {
         if (vendorId == 0x1915) {

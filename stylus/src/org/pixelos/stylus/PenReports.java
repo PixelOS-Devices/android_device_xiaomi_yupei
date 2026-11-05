@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 /*
- * The Focus Pen Pro measures tip pressure itself and sends it over
- * Bluetooth as HID report 5, next to the transmit frequencies it uses.
+ * The Focus Pen and Focus Pen Pro measure tip pressure themselves and send
+ * it over Bluetooth as HID report 5, next to the transmit frequencies they use.
  * The touch firmware needs that report to tell contact from hover, so
  * pass every report on to the touch HAL the way stock does. Report 2
  * carries the pen gestures.
@@ -25,7 +25,7 @@ final class PenReports {
 
     private static final String HIDRAW_CLASS = "/sys/class/hidraw";
     // hidraw nodes link to their HID device, named bus:vendor:product.instance
-    private static final String PEN_HID_ID = "0005:0022:5081.";
+    private static final String PEN_HID_ID = "0005:%04X:%04X.";
 
     private static final int REPORT_GESTURE = 2;
     private static final int REPORT_PRESSURE = 5;
@@ -40,12 +40,12 @@ final class PenReports {
         mGestures = gestures;
     }
 
-    synchronized void start() {
+    synchronized void start(int vendorId, int productId) {
         if (mThread != null && mThread.isAlive()) {
             return;
         }
 
-        String node = findPenNode();
+        String node = findPenNode(String.format(PEN_HID_ID, vendorId, productId));
         if (node == null) {
             Log.w(TAG, "No hidraw node for the pen");
             return;
@@ -62,7 +62,7 @@ final class PenReports {
         }
     }
 
-    private static String findPenNode() {
+    private static String findPenNode(String hidId) {
         File[] nodes = new File(HIDRAW_CLASS).listFiles();
         if (nodes == null) {
             return null;
@@ -70,7 +70,7 @@ final class PenReports {
 
         for (File node : nodes) {
             try {
-                if (Files.readSymbolicLink(node.toPath()).toString().contains(PEN_HID_ID)) {
+                if (Files.readSymbolicLink(node.toPath()).toString().contains(hidId)) {
                     return "/dev/" + node.getName();
                 }
             } catch (IOException e) {
