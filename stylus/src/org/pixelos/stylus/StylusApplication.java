@@ -27,7 +27,7 @@ public class StylusApplication extends Application {
         Settings.System.putString(getContentResolver(), PENCIL_ENGINE_VERSION, "0.3.2");
         PreferenceManager.setDefaultValues(createDeviceProtectedStorageContext(),
                 PreferenceManager.getDefaultSharedPreferencesName(this), Context.MODE_PRIVATE,
-                R.xml.stylus_settings, false);
+                R.xml.stylus_settings, true);
 
         mStylusDeviceListener = new StylusDeviceListener(this);
         mStylusDeviceListener.start();
