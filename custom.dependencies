@@ -10,7 +10,7 @@
   },
   {
     "remote": "gitlab",
-    "repository": "sidharthify/android_vendor_xiaomi_yupei",
+    "repository": "NoPrincessHere/proprietary_vendor_xiaomi_yupei",
     "target_path": "vendor/xiaomi/yupei"
   }
 ]
