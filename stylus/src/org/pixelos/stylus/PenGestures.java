@@ -39,6 +39,8 @@ import java.util.Set;
  * one runs its action here as an injected key or scroll. A pen app
  * that asked the pencil engine for the gestures gets the double tap and
  * swipes itself while it is in front, as the button keys stock sends it.
+ * The Focus Pen sends its two side buttons the same way, as page up and
+ * page down, and only once per press.
  */
 final class PenGestures {
 
@@ -49,11 +51,15 @@ final class PenGestures {
     private static final int USAGE_DOUBLE_TAP = 0x58;
     private static final int USAGE_SWIPE_UP = 0x61;
     private static final int USAGE_SWIPE_DOWN = 0x5b;
+    private static final int USAGE_TOP_BUTTON = 0x4b;
+    private static final int USAGE_BOTTOM_BUTTON = 0x4e;
 
     static final String SQUEEZE = "squeeze";
     static final String DOUBLE_TAP = "double_tap";
     static final String SWIPE_UP = "swipe_up";
     static final String SWIPE_DOWN = "swipe_down";
+    static final String TOP_BUTTON = "top_button";
+    static final String BOTTOM_BUTTON = "bottom_button";
 
     static final String ACTION_NONE = "none";
     static final String ACTION_PIE = "pie";
@@ -64,6 +70,8 @@ final class PenGestures {
     static final String ACTION_PLAY_PAUSE = "play_pause";
     static final String ACTION_SCROLL_UP = "scroll_up";
     static final String ACTION_SCROLL_DOWN = "scroll_down";
+    static final String ACTION_PAGE_UP = "page_up";
+    static final String ACTION_PAGE_DOWN = "page_down";
 
     // pen haptic types and strength stock uses for a double tap and a swipe
     private static final int HAPTIC_DOUBLE_TAP = 3;
@@ -108,7 +116,7 @@ final class PenGestures {
             return;
         }
 
-        if (!SQUEEZE.equals(gesture)
+        if (sentToApps(gesture)
                 && PencilEngineManagerService.wantsGestures(focusedPackage())) {
             Log.i(TAG, "Pen " + gesture + ", passing it to the app");
             vibrate(gesture);
@@ -210,9 +218,18 @@ final class PenGestures {
                 return SWIPE_UP;
             case USAGE_SWIPE_DOWN:
                 return SWIPE_DOWN;
+            case USAGE_TOP_BUTTON:
+                return TOP_BUTTON;
+            case USAGE_BOTTOM_BUTTON:
+                return BOTTOM_BUTTON;
             default:
                 return null;
         }
+    }
+
+    private static boolean sentToApps(String gesture) {
+        return DOUBLE_TAP.equals(gesture) || SWIPE_UP.equals(gesture)
+                || SWIPE_DOWN.equals(gesture);
     }
 
     private static int appKeyCodeFor(String gesture) {
@@ -270,6 +287,10 @@ final class PenGestures {
                 return KeyEvent.KEYCODE_APP_SWITCH;
             case ACTION_PLAY_PAUSE:
                 return KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE;
+            case ACTION_PAGE_UP:
+                return KeyEvent.KEYCODE_PAGE_UP;
+            case ACTION_PAGE_DOWN:
+                return KeyEvent.KEYCODE_PAGE_DOWN;
             default:
                 return KeyEvent.KEYCODE_UNKNOWN;
         }

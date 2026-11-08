@@ -12,6 +12,8 @@
     <string name="gesture_double_tap">Double tap</string>
     <string name="gesture_swipe_up">Swipe up</string>
     <string name="gesture_swipe_down">Swipe down</string>
+    <string name="gesture_top_button">Top side button</string>
+    <string name="gesture_bottom_button">Bottom side button</string>
     <string name="gestures_footer">Pen apps that support it get the double tap and swipes themselves while they\'re open.</string>
 
     <string name="notes_title">Notes</string>
@@ -30,4 +32,6 @@
     <string name="action_play_pause">Play or pause</string>
     <string name="action_scroll_up">Scroll up</string>
     <string name="action_scroll_down">Scroll down</string>
+    <string name="action_page_up">Page up</string>
+    <string name="action_page_down">Page down</string>
 </resources>

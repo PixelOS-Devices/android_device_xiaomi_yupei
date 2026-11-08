@@ -14,6 +14,8 @@
         <item>@string/action_play_pause</item>
         <item>@string/action_scroll_up</item>
         <item>@string/action_scroll_down</item>
+        <item>@string/action_page_up</item>
+        <item>@string/action_page_down</item>
     </string-array>
 
     <string-array name="gesture_action_values" translatable="false">
@@ -26,6 +28,8 @@
         <item>play_pause</item>
         <item>scroll_up</item>
         <item>scroll_down</item>
+        <item>page_up</item>
+        <item>page_down</item>
     </string-array>
 
     <string-array name="pie_action_entries" translatable="false">

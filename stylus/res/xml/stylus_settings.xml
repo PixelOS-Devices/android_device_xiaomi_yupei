@@ -40,6 +40,22 @@
             android:defaultValue="scroll_down"
             app:useSimpleSummaryProvider="true" />
 
+        <ListPreference
+            android:key="top_button"
+            android:title="@string/gesture_top_button"
+            android:entries="@array/gesture_action_entries"
+            android:entryValues="@array/gesture_action_values"
+            android:defaultValue="page_up"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="bottom_button"
+            android:title="@string/gesture_bottom_button"
+            android:entries="@array/gesture_action_entries"
+            android:entryValues="@array/gesture_action_values"
+            android:defaultValue="page_down"
+            app:useSimpleSummaryProvider="true" />
+
         <Preference
             android:summary="@string/gestures_footer"
             android:selectable="false" />
